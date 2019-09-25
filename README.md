@@ -50,6 +50,7 @@ Mesero o personal de la cafetería Ne-Koffe que requiere aplicación en tablet p
 ## Historias de Usuario
 #### Historia de usuario 1
 El usuario puede ingresar a la interfaz con su token.
+
 **DoD**
 - Página de inicio
 - Input para ingresar el token
@@ -58,39 +59,49 @@ El usuario puede ingresar a la interfaz con su token.
 
 #### Historia de usuario 2
 El usuario al ingresar a la interfaz puede agregar productos a su comanda.
+
 **DoD**
 - Página para agregar productos
 - Botones de productos que al dar click agrega 1 a la comanda
-- Lista de comanda donde se imprime lo que se pidió
+- Se visualiza la lista de productos agregados a la comanda
 - Botón para enviar comanda a cocina
-- Botón para cancelar comanda antes de ser enviada
+
 #### Historia de usuario 3
-El usuario puede eliminar productos de su comanda.
+El usuario puede eliminar productos de su comanda o cancelarla antes de ser enviada.
+
 **DoD**
+- El usuario puede seleccionar productos de la lista comandada.
 - Botón para eliminar el elemento seleccionado de la comanda
+- Botón para cancelar comanda completa y volver a página anterior
 #### Historia de usuario 4
-El usuario puede editar una comanda.
+El usuario puede editar una comanda ya enviada.
+
 **DoD**
-- Componente que incluya los botones de agregar y eliminar un producto, mismo desde donde podrá editarse la comanda
+- Botón de "Agregar producto", que direccione a página para agregar productos.
+- Que se guarde el nuevo elemento en la misma comanda.
 #### Historia de usuario 5
-El usuario puede eliminar una comanda ya enviada en caso de cancelación.
+El usuario puede eliminar el producto de una comanda ya enviada en caso de cancelación.
+
 **DoD**
-- Botón que permita eliminar la comanda completa
-- Alerta que solicite una confirmación por parte del usuario antes de eliminar la comanda
+- Se puede seleccionar el producto a eliminar
+- Botón que permita eliminar el/los productos seleccionados.
+- Alerta que solicite confirmación por parte del usuario antes de eliminar el/los productos
 #### Historia de usuario 6
-El usuario puede seleccionar desde que mesa comenzar a tomar el pedido
+El usuario puede seleccionar desde que mesa comandar 
 **DoD**
-- Página donde se podrá seleccionar la mesa que tomará el pedido
-- Botón dentro de esa página que lleve a la página donde se crea el pedido
-- Botón en la página donde se crea el pedido que nos permita salir de ella sin realizar ningún cambio
+- Página donde se podrá seleccionar la mesa 
+- Botón para volver a pagina inicial
+- Botón dentro de esa página que lleve a la página donde se crea el pedido.
+
 #### Historia de usuario 7
-El usuario necesita poder seleccionar entre distintas opciones al seleccionar una mesa: ver comanda actual, agregar elementos al pedido e imprimir el ticket
+El usuario necesita poder elegir
+ entre distintas opciones al seleccionar una mesa: ver comanda actual, agregar elementos al pedido e imprimir el ticket
 **DoD**
 - Componente donde se podrán visualizar las distintas opciones
 - Botón para ver comanda actual
-- Página que muestra la comanda actual, sin poder editar nada en ella
 - Botón para agregar elementos al pedido
 - Botón para imprimir el ticket
+- Página que muestra la comanda actual 
 #### Historia de usuario 8
 El usuario puede agregar comentarios a un producto en especifico al tomar el pedido
 **DoD**
