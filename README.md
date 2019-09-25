@@ -1,5 +1,130 @@
 # Burger Queen
 
+## Idioma/Language
+- [Español](#español)
+- [English](#english)
+
+---
+
+## Español
+
+## Índice
+
+- [Introducción](#introduccion)
+- [Definición del producto](#definición-del-producto)
+- [Definición del usuario](#definición-del-usuario)
+- [Historias de Usuario](#historias-de-usuario)
+- [Prototipo y Diagrama de flujo](#prototipo-y-diagrama-de-flujo)
+- [Documentación](#documentación)
+- [Extras](#extras)
+
+
+## Introducción
+Este proyecto fue realizado durante el Bootcamp de Laboratoria, sede Guadalajara Generación 003, durante el reto de Burger Queen. 
+La duración de este fue de 3 semanas divididas en sprints(uno por semana).
+El equipo esta conformado por 4 estudiantes, mismas que se dividieron en actividades de Front-End y Back-End.
+### Front-End:
+- Karla Elizabeth Alvarez Castilla
+- Gloria Ramírez Robles
+### Back-End:
+- Karina Lizbeth Cabrera Ruiz
+- Brenda Lucero Vielmas García
+
+Dentro de este repositorio se documenta la parte Front-End del proyecto.
+
+## Definición del producto
+Nuestro cliente es la cafetería Ne-koffe, un concepto en la ZMG donde puedes convivir con gatos durante tu estancia en ella. Como parte de su planeación de micro empresa, los dueños de Ne-koffe han solicitado la creación de una aplicación para tablets que pueda ser utilizada por sus meseros para tomar pedidos y emitir la comanda correspondiente al área de cocina. Esta aplicación debe cumplir con estos requisitos:
+- Poder ser utilizada exclusivamente por el personal de la cafetería (por medio de un token)
+- Permitir agregar productos de la comanda
+- Permitir eliminar productos de la comanda
+- Editar una comanda ya existente
+- Eliminar la comanda completa en caso de cancelación
+- Enviar la comanda finalizada a cocina
+- Separar las comandas por mesa atendidato
+
+Todo lo anterior debe ser a traves de una interfaz bastante intuitiva y de fácil manejo, incluyendo en su diseño el branding de la cafetería.
+## Definición del usuario
+
+
+## Historias de Usuario
+#### Historia de usuario 1
+El usuario puede ingresar a la interfaz con su token.
+**DoD**
+- Página de inicio
+- Input para ingresar el token
+- Botón de ingreso
+- Alerta en caso de token incorrecto
+
+#### Historia de usuario 2
+El usuario al ingresar a la interfaz puede agregar productos a su comanda.
+**DoD**
+- Página para agregar productos
+- Botones de productos que al dar click agrega 1 a la comanda
+- Lista de comanda donde se imprime lo que se pidió
+- Botón para enviar comanda a cocina
+#### Historia de usuario 3
+El usuario puede eliminar productos de su comanda.
+**DoD**
+- Botón para eliminar el elemento seleccionado de la comanda
+#### Historia de usuario 4
+El usuario puede editar una comanda.
+**DoD**
+- Componente que incluya los botones de agregar y eliminar un producto, mismo desde donde podrá editarse la comanda
+#### Historia de usuario 5
+El usuario puede eliminar una comanda en caso de cancelación.
+**DoD**
+- Botón que permita eliminar la comanda completa
+- Alerta que solicite una confirmación por parte del usuario antes de eliminar la comanda
+#### Historia de usuario 6
+El usuario puede seleccionar desde que mesa comenzar a tomar el pedido
+**DoD**
+- Página donde se podrá seleccionar la mesa que tomará el pedido
+- Botón dentro de esa página que lleve a la página donde se crea el pedido
+- Botón en la página donde se crea el pedido que nos permita salir de ella sin realizar ningún cambio
+#### Historia de usuario 7
+El usuario necesita poder seleccionar entre distintas opciones al seleccionar una mesa: ver comanda actual, agregar elementos al pedido e imprimir el ticket
+**DoD**
+- Página donde se podrán visualizar las distintas opciones
+- Botón para ver comanda actual
+- Página que muestra la comanda actual, sin poder editar nada en ella
+- Botón para agregar elementos al pedido
+- Botón para imprimir el ticket
+#### Historia de usuario 8
+El usuario puede agregar comentarios a un producto en especifico al tomar el pedido
+**DoD**
+- Input dentro de la página de tomar pedidos que nos permita comentar los productos al momento de agregarlos a la comanda
+
+## Prototipo y Diagrama de Flujo
+
+## Documentación
+
+## Extras
+
+---
+## English
+
+## Index
+
+- [Introduction](#introduction)
+- [Product definition](#product-definition)
+- [User definition](#user-definition)
+- [User stories](#user-stories)
+- [Prototype and Flowchart](#prototype-and-flowchart)
+- [Documentation](#documentation)
+- [Additional features](#Additional-features)
+
+## Introduction
+## Product definition
+## User definition
+## User stories
+#### User Storie 1
+**DoD**
+## Prototype and Flowchart
+## Documentation
+## Additional features
+
+# Burger Queen
+
 ## 1. Preámbulo
 
 [React](https://reactjs.org/), [Angular](https://angular.io/) y [Vue](https://vuejs.org/)
