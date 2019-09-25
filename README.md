@@ -35,15 +35,16 @@ Dentro de este repositorio se documenta la parte Front-End del proyecto.
 ## Definición del producto
 Nuestro cliente es la cafetería Ne-koffe, un concepto en la ZMG donde puedes convivir con gatos durante tu estancia en ella. Como parte de su planeación de micro empresa, los dueños de Ne-koffe han solicitado la creación de una aplicación para tablets que pueda ser utilizada por sus meseros para tomar pedidos y emitir la comanda correspondiente al área de cocina. Esta aplicación debe cumplir con estos requisitos:
 - Poder ser utilizada exclusivamente por el personal de la cafetería (por medio de un token)
-- Permitir agregar productos de la comanda
+- Permitir agregar productos del menú a la comanda
 - Permitir eliminar productos de la comanda
 - Editar una comanda ya existente
 - Eliminar la comanda completa en caso de cancelación
 - Enviar la comanda finalizada a cocina
-- Separar las comandas por mesa atendidato
+- Separar las comandas por mesa atendida
 
-Todo lo anterior debe ser a traves de una interfaz bastante intuitiva y de fácil manejo, incluyendo en su diseño el branding de la cafetería.
+Todo lo anterior debe ser a traves de una interfaz intuitiva que incluye en su diseño el branding de la cafetería.
 ## Definición del usuario
+Mesero o personal de la cafetería Ne-Koffe que requiere aplicación en tablet para registrar los pedidos con la mayor facilidad en el menor tiempo posible.
 
 
 ## Historias de Usuario
@@ -62,6 +63,7 @@ El usuario al ingresar a la interfaz puede agregar productos a su comanda.
 - Botones de productos que al dar click agrega 1 a la comanda
 - Lista de comanda donde se imprime lo que se pidió
 - Botón para enviar comanda a cocina
+- Botón para cancelar comanda antes de ser enviada
 #### Historia de usuario 3
 El usuario puede eliminar productos de su comanda.
 **DoD**
@@ -71,7 +73,7 @@ El usuario puede editar una comanda.
 **DoD**
 - Componente que incluya los botones de agregar y eliminar un producto, mismo desde donde podrá editarse la comanda
 #### Historia de usuario 5
-El usuario puede eliminar una comanda en caso de cancelación.
+El usuario puede eliminar una comanda ya enviada en caso de cancelación.
 **DoD**
 - Botón que permita eliminar la comanda completa
 - Alerta que solicite una confirmación por parte del usuario antes de eliminar la comanda
@@ -84,7 +86,7 @@ El usuario puede seleccionar desde que mesa comenzar a tomar el pedido
 #### Historia de usuario 7
 El usuario necesita poder seleccionar entre distintas opciones al seleccionar una mesa: ver comanda actual, agregar elementos al pedido e imprimir el ticket
 **DoD**
-- Página donde se podrán visualizar las distintas opciones
+- Componente donde se podrán visualizar las distintas opciones
 - Botón para ver comanda actual
 - Página que muestra la comanda actual, sin poder editar nada en ella
 - Botón para agregar elementos al pedido
@@ -92,11 +94,17 @@ El usuario necesita poder seleccionar entre distintas opciones al seleccionar un
 #### Historia de usuario 8
 El usuario puede agregar comentarios a un producto en especifico al tomar el pedido
 **DoD**
+- Botón para agregar comentario
 - Input dentro de la página de tomar pedidos que nos permita comentar los productos al momento de agregarlos a la comanda
+- Botón "Para llevar"
+- Botón "No trabaja"
 
 ## Prototipo y Diagrama de Flujo
-
+### Prototipo de baja fidelidad
+![PrototipoBajaFidelidad](https://i.ibb.co/k4JD2Gt/Whats-App-Image-2019-09-24-at-8-52-17-PM.jpg)
 ## Documentación
+### Prototipo para 1era iteración
+![PrototipoPrimerSprint](https://i.ibb.co/1b2yW3g/Anotaci-n-2019-09-24-210709.png) 
 
 ## Extras
 
