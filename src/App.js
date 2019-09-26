@@ -1,16 +1,10 @@
 import React from 'react';
 import './App.css';
-import Enter from './Enter';
-import CreateComand from './CreateComand'
+import Router from './Router';
 
 function App() {
   return (
-    <div>
-      <Enter/>
-      <CreateComand/>
-    </div>
-    
-
+  <Router/>
    );
 }
 
