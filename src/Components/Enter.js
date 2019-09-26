@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './Ne-koffee Aqua oscuro.png';
-import './App.css';
+import './Enter.css';
 
 function Enter() {
   return (

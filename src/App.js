@@ -1,17 +1,17 @@
 import React from 'react';
 import './App.css';
-import Enter from './Enter';
-import CreateComand from './CreateComand'
+import Enter from './Components/Enter';
+import Create from './Components/CreateCommand'
 
 function App() {
   return (
     <div>
-      <Enter/>
-      <CreateComand/>
+      <Enter />
+      <Create />
     </div>
-    
 
-   );
+
+  );
 }
 
 export default App;
