@@ -7,7 +7,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffba92;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,22 @@
   color: white;
 }
 
-.App-link {
+/* .App-link {
   color: #09d3ac;
+} */
+
+.Input {
+  border: 0;
+  background-color: #def;
+  width: 20rem;
+  height: 4rem;
+  margin: 1.5rem
+}
+
+.Button {
+  background-color: #def;
+  border: 0;
+  width: 5rem;
+  height: 3rem;
+  margin: 0
 }
