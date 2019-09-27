@@ -1,3 +1,27 @@
 .renderCommand {
     background: #c6f1d6;
+    color: #31433f;
+}
+#menuList {
+    text-align: center;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+}
+#menuList td, #menuList th {
+    border: 1px solid #ddd;
+    paddind: 8px;
+}
+#menuList tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#menuList tr:hover {
+    background-color: #ffba92;
+}
+#menuList th {
+    padding-top: 12px;
+    padding-botton: 12px;
+    text-align: center;
+    background-color: #ff8080;
+    color: white;
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'; 
 import {ProtectedRoute} from './ProtectedRoute'
-import Enter from './Enter';
-import CreateCommand from './CreateCommand'
+import Enter from './Components/Enter';
+import CreateCommand from './Components/CreateCommand'
 
 const Router = () => (
 
