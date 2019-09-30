@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './Ne-koffee Aqua oscuro.png';
 import './Enter.css';
+import EnterButton from './EnterButton'
 
 function Enter() {
   return (
@@ -9,8 +10,7 @@ function Enter() {
         <img src={logo} className="App-logo" alt="logo" />
         <input className='Input' type= 'text' >
         </input>
-        <button className= "Button">
-        </button>
+        <EnterButton/>
       </header>
     </div>
   );

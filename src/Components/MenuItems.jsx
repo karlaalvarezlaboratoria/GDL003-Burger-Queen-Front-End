@@ -5,7 +5,7 @@ import './MenuItems.css';
 class RenderCommand extends Component {
     constructor(props) {
         super(props);
-        this.addProduct = this.addProduct.bind(this);
+       // this.addProduct = this.addProduct.bind(this);
         this.state = {
 
            /* menuList: [
