@@ -1,6 +1,11 @@
 .renderCommand {
     background: #c6f1d6;
     color: #31433f;
+    border: black;
+    margin: 2rem;
+    height: 30rem;
+    width: 20rem;
+    float: left;
 }
 #menuList {
     text-align: center;
