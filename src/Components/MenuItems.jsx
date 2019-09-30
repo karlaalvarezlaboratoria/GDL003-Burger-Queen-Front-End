@@ -3,10 +3,9 @@ import './MenuItems.css';
 import './RenderCommand';
 
 
-class RenderCommand extends Component {
+class MenuItems extends Component {
     constructor(props) {
         super(props);
-       // this.addProduct = this.addProduct.bind(this);
         this.state = {
             menu: []
         }
@@ -32,12 +31,13 @@ class RenderCommand extends Component {
             })
     }
 
-
+    //newCommand = []
     addProduct(id, price, value) {
         console.log("Hola :D");
         console.log(price);
         console.log(id);
         console.log(value);
+
         // this.props.addProduct(id, price, value);
 
     }
@@ -58,4 +58,4 @@ class RenderCommand extends Component {
         )
     }
 }
-export default RenderCommand;
+export default MenuItems;
