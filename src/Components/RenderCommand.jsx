@@ -38,7 +38,7 @@ class RenderCommand extends Component {
                 <h1>Aqui va la tabla de la comanda hecha</h1>
                 <table id='menuList'>
                     <tbody>
-                          {/* <tr>{this.renderTableHeader()}</tr> */}
+                        {/* <tr>{this.renderTableHeader()}</tr> */}
                         {this.addProduct()}
                     </tbody>
                 </table>
