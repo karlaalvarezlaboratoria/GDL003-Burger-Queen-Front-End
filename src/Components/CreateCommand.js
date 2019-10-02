@@ -10,12 +10,12 @@ class Create extends Component {
     super();
     this.state = {
       menu: [],
-      order:[{
-        id: 1,
-        name: "producto",
-        price: "precio"
-      }]
+      order:[]
     }
+    //SI NO QUIERO USAR ARROW FUNCTION NECESITO AGREGAR...
+    //ESTE CÓDIGO PARA QUE EL "this" QUE SE UTILICE EN LA FUNCIÓN
+    //SEA EL DE LA CLASE Y NO EL DE LA FUNCIÓN.
+    //this.addProduct = this.addProduct.bind(this);
   }
   componentDidMount() {
     // fetch('https://gdl003-burger-queen-back-end.engkarinacabrera.now.sh/products')
@@ -39,23 +39,25 @@ class Create extends Component {
     })
     //     })
   }
-
-  addProduct(id, price, value) {
-    let newElement= []
-    newElement.push({
+  
+  //CUANDO UTILIZO ARROW FUNCTION SE HEREDAN LAS PROPIEDADES
+  //DEL PADRE, O SEA DE LA CLASE
+  addProduct = (id, price, value) => {
+    let newElement= {
         name: value,
         price:price,
         id: id
-     } )
+     } 
 
       console.log(newElement)
-     
+
+       this.setState({
+        order: [...this.state.order, newElement]
+        })
+      
       // this.setState({
-      //   order: [{
-      //     name:value,
-      //     price: price,
-      //     id: id,
-      //   }]
+      //   order: [...this.state.order, newElement]
+      //   })
         
       // })
 }

@@ -10,24 +10,19 @@ class RenderCommand extends Component {
         }
     }
     
-    renderTableHeader() {
-        let header = Object.keys(this.props.order[0])
-        return header.map((key, index) => {
-            return <th key={index}>{key.toUpperCase()}</th>
-        })
-    }
 
     render() {
-      //  console.log(this.addProduct)
         return (
             <div className="renderCommand">
                 <h1>Aqui va la tabla de la comanda hecha</h1>
                 <table id='menuList'>
                     <tbody>
-                        <tr>{this.renderTableHeader()}</tr>
+                        <th>No.</th>
+                        <th>Product</th>
+                        <th>Price</th>
                         {this.props.order.map((element, id)=>(
                           <tr key={id}>
-                          <td>{id}</td>    
+                          <td>{id+1}</td>    
                           <td>{element.name}</td>
                           <td>{element.price}</td>
                           </tr>  
