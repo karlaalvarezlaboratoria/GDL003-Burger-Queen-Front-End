@@ -1,16 +1,40 @@
 .menuItems{
-    
-    border: black;
-    margin: 2rem;
-    height: 30rem;
-    width: 20rem;
     background: #1fab89;
-    float: right
+    border: #ff8080;
+    border-radius:6px;
+    border-style: double;
+    float: right;
+    height: 30rem;
+    margin: 2rem;
+    width: 20rem;
 }
 
 .button{
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffba92;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffba92;
+	box-shadow:inset 0px 1px 0px 0px #ffba92;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffba92), color-stop(1, #ff8080));
+	background:-moz-linear-gradient(top, #ffba92 5%, #ff8080 100%);
+	background:-webkit-linear-gradient(top, #ffba92 5%, #ff8080 100%);
+	background:-o-linear-gradient(top, #ffba92 5%, #ff8080 100%);
+	background:-ms-linear-gradient(top, #ffba92 5%, #ff8080 100%);
+	background:linear-gradient(to bottom, #ffba92 5%, #ff8080 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffba92', endColorstr='#ff8080',GradientType=0);
+	background-color:#ffba92;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+    border:1px solid #ff8080;
+    color:#ffffff;
+    cursor:pointer;
+    display:inline-block;
     float: flex;
+	font-family:Arial;
+	font-size:15px;
+    font-weight:bold;
+    height: 3rem;
     margin: 1rem;
-    height: 2rem;
-    width: 5rem;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #ff8080;
+    width: 6rem;
 }

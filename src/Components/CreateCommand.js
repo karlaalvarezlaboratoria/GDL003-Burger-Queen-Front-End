@@ -67,7 +67,7 @@ class Create extends Component {
     return (
       <div>
         <Cancel />
-        <p>Este va a se mi pantalla de comandas</p>
+        <h1>Selecciona los elementos del menú que desees agregar a la comanda</h1>
         <RenderCommand
         order={this.state.order} /*items={this.state.orderItems}*/ />
         <MenuItems 
