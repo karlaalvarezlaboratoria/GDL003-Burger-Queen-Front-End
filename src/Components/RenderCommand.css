@@ -1,32 +1,35 @@
 .renderCommand {
     background: #c6f1d6;
+    border: #1fab89;
+    border-radius:6px;
+    border-style: double;
     color: #31433f;
-    border: black;
-    margin: 2rem;
-    height: 30rem;
-    width: 20rem;
     float: left;
+    height: 30rem;
+    margin: 2rem;
+    width: 20rem;  
 }
+
 #menuList {
-    text-align: center;
     border-collapse: collapse;
     border: 3px solid #ddd;
+    text-align: center;
     width: 100%;
 }
+
 #menuList td, #menuList th {
     border: 1px solid #ddd;
     paddind: 8px;
 }
+
 #menuList tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-#menuList tr:hover {
-    background-color: #ffba92;
-}
+
 #menuList th {
+    background-color: #ff8080;
+    color: white;
     padding-top: 12px;
     padding-botton: 12px;
     text-align: center;
-    background-color: #ff8080;
-    color: white;
 }
