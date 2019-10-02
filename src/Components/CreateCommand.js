@@ -55,11 +55,7 @@ class Create extends Component {
         order: [...this.state.order, newElement]
         })
       
-      // this.setState({
-      //   order: [...this.state.order, newElement]
-      //   })
-        
-      // })
+     
 }
 
 
