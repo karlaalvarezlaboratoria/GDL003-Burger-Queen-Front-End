@@ -9,7 +9,12 @@ class Create extends Component {
   constructor() {
     super();
     this.state = {
-      menu: []
+      menu: [],
+      order:[{
+        id: 1,
+        name: "producto",
+        price: "precio"
+      }]
     }
   }
   componentDidMount() {
@@ -35,15 +40,41 @@ class Create extends Component {
     //     })
   }
 
+  addProduct(id, price, value) {
+    let newElement= []
+    newElement.push({
+        name: value,
+        price:price,
+        id: id
+     } )
+
+      console.log(newElement)
+     
+      // this.setState({
+      //   order: [{
+      //     name:value,
+      //     price: price,
+      //     id: id,
+      //   }]
+        
+      // })
+}
+
+
+
   render() {
+    console.log(this.state.order)
     const command = this.state;
     console.log(command);
     return (
       <div>
         <Cancel />
         <p>Este va a se mi pantalla de comandas</p>
-        <RenderCommand /*items={this.state.orderItems}*/ />
-        <MenuItems menu={this.state.menu} />
+        <RenderCommand
+        order={this.state.order} /*items={this.state.orderItems}*/ />
+        <MenuItems 
+        menu={this.state.menu}
+        addProduct={this.addProduct} />
 
       </div>
     );
