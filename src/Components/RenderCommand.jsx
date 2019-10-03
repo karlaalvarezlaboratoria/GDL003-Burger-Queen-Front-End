@@ -9,7 +9,7 @@ class RenderCommand extends Component {
             order: []
         }
     }
-    
+
 
     render() {
         return (
@@ -20,15 +20,22 @@ class RenderCommand extends Component {
                         <th>No.</th>
                         <th>Product</th>
                         <th>Price</th>
-                        {this.props.order.map((element, id)=>(
-                          <tr key={id}>
-                          <td>{id+1}</td>    
-                          <td>{element.name}</td>
-                          <td>{element.price}</td>
-                          </tr>  
+                        {this.props.order.map((element, id) => (
+                            <tr key={id}>
+                                <td>{id + 1}</td>
+                                <td>{element.name}</td>
+                                <td>{element.price}</td>
+                            </tr>
                         )
                         )}
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>#</td>
+                            <td>Total</td>
+                            <td>$</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         )
