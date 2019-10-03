@@ -57,7 +57,8 @@ class Create extends Component {
         })    
      }
 
-  // handleSubmit = (e) => {
+   glory = (/*e*/) => {
+     console.log(this.state.order)
   //     e.preventDefault();
   //      let databody = this.state.order
         
@@ -70,7 +71,7 @@ class Create extends Component {
   //          })
   //          .then(res => res.json())
   //          .then(data => console.log(data));
-  //  }
+    }
 
 
 
@@ -80,10 +81,10 @@ class Create extends Component {
     console.log(command);
     return (
       <div>
-        <Cancel /> <Send send={this.handleSubmit}/>
+        <Cancel /> <Send glory={this.glory}/>
         <h1>Selecciona los elementos del menú que desees agregar a la comanda</h1>
         <RenderCommand
-        order={this.state.order} /*items={this.state.orderItems}*/ />
+        order={this.state.order}/>
         <MenuItems 
         menu={this.state.menu}
         addProduct={this.addProduct} />

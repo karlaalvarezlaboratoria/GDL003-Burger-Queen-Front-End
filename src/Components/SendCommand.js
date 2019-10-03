@@ -4,16 +4,21 @@ import { withRouter } from 'react-router-dom'
 import './CancelComand.css'
 
 class Send extends Component {
+    constructor() {
+        super();
+        this.state = {}
+    }
 
-  handleSubmit(){
-      this.props.handleSubmit()
+  glory(){
+      this.props.glory()
+      this.props.history.push('/')
   }
     
   render(){
     return(
   <button
     type="button"
-    onClick={/*this.handleSubmit().then(*/() => this.props.history.push('/')}
+    onClick={() => this.glory()}
   >
     Send
   </button>
