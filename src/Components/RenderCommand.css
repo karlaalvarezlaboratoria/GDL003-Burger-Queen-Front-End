@@ -26,7 +26,7 @@
     background-color: #f2f2f2;
 }
 
-#menuList th {
+#menuList th, tfoot {
     background-color: #ff8080;
     color: white;
     padding-top: 12px;
