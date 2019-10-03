@@ -5,7 +5,6 @@ import MenuItems from './MenuItems';
 import Cancel from './CancelComand';
 import Send from './SendCommand';
 
-
 class Create extends Component {
   constructor() {
     super();
@@ -19,26 +18,26 @@ class Create extends Component {
     //this.addProduct = this.addProduct.bind(this);
   }
   componentDidMount() {
-    // fetch('https://gdl003-burger-queen-back-end.engkarinacabrera.now.sh/products')
-    //     .then(data => data.json())
-    //     .then(data => {
-    //         let arr = [];
-    //         let keac = () => {
-    //             data.products.forEach((element) => {
-    //                 arr.push(element)
-    //             }); console.log(arr)
-    //             return arr;
-    //         }
-    //         keac()
+    fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/products')
+        .then(data => data.json())
+        .then(data => {
+            let arr = [];
+            let keac = () => {
+                data.products.forEach((element) => {
+                    arr.push(element)
+                }); console.log(arr)
+                return arr;
+            }
+            keac()
 
     this.setState({
-      menu: [
-        { id: 1, name: 'Café', price: 15 },
-        { id: 2, name: 'Té', price: 10 },
-        { id: 3, name: 'Chocolate', price: 20 }]
-      //             menu: arr
+      // menu: [
+      //   { id: 1, name: 'Café', price: 15 },
+      //   { id: 2, name: 'Té', price: 10 },
+      //   { id: 3, name: 'Chocolate', price: 20 }]
+         menu: arr
     })
-    //     })
+  })
   }
   
   //CUANDO UTILIZO ARROW FUNCTION SE HEREDAN LAS PROPIEDADES
@@ -57,20 +56,16 @@ class Create extends Component {
         })    
      }
 
-   glory = (/*e*/) => {
+   glory = () => {
      console.log(this.state.order)
-  //     e.preventDefault();
-  //      let databody = this.state.order
+       let databody = this.state.order
         
-  //      fetch('http://localhost:5002/stored', {
-  //              method: 'POST',
-  //              body: JSON.stringify(databody),
-  //              headers: {
-  //                  'Content-Type': 'application/json'
-  //              },
-  //          })
-  //          .then(res => res.json())
-  //          .then(data => console.log(data));
+     fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders', {
+               method: 'POST',
+               body: JSON.stringify(databody)
+           }).then(res => res.json())
+           .then(data => console.log(data))
+           .catch(err => console.log(err.message));
     }
 
 
