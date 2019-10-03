@@ -3,6 +3,7 @@ import './CreateCommand.css';
 import RenderCommand from './RenderCommand';
 import MenuItems from './MenuItems';
 import Cancel from './CancelComand';
+import Send from './SendCommand';
 
 
 class Create extends Component {
@@ -53,10 +54,23 @@ class Create extends Component {
 
        this.setState({
         order: [...this.state.order, newElement]
-        })
-      
-     
-}
+        })    
+     }
+
+  // handleSubmit = (e) => {
+  //     e.preventDefault();
+  //      let databody = this.state.order
+        
+  //      fetch('http://localhost:5002/stored', {
+  //              method: 'POST',
+  //              body: JSON.stringify(databody),
+  //              headers: {
+  //                  'Content-Type': 'application/json'
+  //              },
+  //          })
+  //          .then(res => res.json())
+  //          .then(data => console.log(data));
+  //  }
 
 
 
@@ -66,7 +80,7 @@ class Create extends Component {
     console.log(command);
     return (
       <div>
-        <Cancel />
+        <Cancel /> <Send send={this.handleSubmit}/>
         <h1>Selecciona los elementos del menú que desees agregar a la comanda</h1>
         <RenderCommand
         order={this.state.order} /*items={this.state.orderItems}*/ />
