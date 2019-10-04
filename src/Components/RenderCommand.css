@@ -19,11 +19,12 @@
 
 #menuList td, #menuList th {
     border: 1px solid #ddd;
-    paddind: 8px;
+    paddind: 15px;
 }
 
 #menuList tr:nth-child(even) {
     background-color: #f2f2f2;
+    paddind: 15px;
 }
 
 #menuList th, tfoot {
