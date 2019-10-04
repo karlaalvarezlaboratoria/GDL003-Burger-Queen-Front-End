@@ -9,6 +9,10 @@ class RenderCommand extends Component {
             order: []
         }
     }
+   
+    delete = (uuid)=>{
+     console.log(uuid)
+    }
 
     render() {
         console.log(this.props.order);
@@ -23,11 +27,16 @@ class RenderCommand extends Component {
                         <th>No.</th>
                         <th>Product</th>
                         <th>Price</th>
-                        {this.props.order.map((element, id) => (
+                        {this.props.order.map((element, id, key) => (
                             <tr key={id}>
                                 <td>{id + 1}</td>
                                 <td>{element.name}</td>
                                 <td>{element.price}</td>
+                                <td>
+                                    <button
+                                    onClick = {()=>this.delete(element.uuid)}>
+                                        Delete
+                                    </button></td>
                             </tr>
                         )
                         )}
