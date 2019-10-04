@@ -70,6 +70,20 @@ class Create extends Component {
       .catch(err => console.log(err.message));
   }
 
+  delete = (uuid) => {
+      let order = this.state.order
+      let keac = uuid;
+      let glory = order.filter((el) => {
+        console.log(el)
+        return el.uuid!== keac 
+    })
+    console.log(glory)
+    
+    this.setState({
+        order: glory   
+      })
+    }
+
 
 
   render() {
@@ -81,6 +95,7 @@ class Create extends Component {
         <Cancel /> <Send glory={this.glory} />
         <h1>Ne-koffee</h1>
         <RenderCommand
+          delete={this.delete}
           order={this.state.order} />
         <MenuItems
           menu={this.state.menu}

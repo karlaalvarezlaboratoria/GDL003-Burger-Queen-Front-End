@@ -9,10 +9,25 @@ class RenderCommand extends Component {
             order: []
         }
     }
-   
-    delete = (uuid)=>{
-     console.log(uuid)
+
+    delete(uuid) {
+        this.props.delete(uuid)
+
     }
+// delete = (uuid) => {
+//   let order = this.props.order
+//   let keac = uuid;
+//   let glory = order.filter((el) => {
+//     console.log(el)
+//     return el.uuid!== keac 
+// })
+// console.log(glory)
+
+// this.setState({
+//     order: glory   
+//   })
+// }
+
 
     render() {
         console.log(this.props.order);
