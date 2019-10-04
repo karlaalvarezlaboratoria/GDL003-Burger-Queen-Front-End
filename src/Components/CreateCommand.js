@@ -10,7 +10,7 @@ class Create extends Component {
     super();
     this.state = {
       menu: [],
-      order:[]
+      order: []
     }
     //SI NO QUIERO USAR ARROW FUNCTION NECESITO AGREGAR...
     //ESTE CÓDIGO PARA QUE EL "this" QUE SE UTILICE EN LA FUNCIÓN
@@ -19,54 +19,54 @@ class Create extends Component {
   }
   componentDidMount() {
     fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/products')
-        .then(data => data.json())
-        .then(data => {
-            let arr = [];
-            let keac = () => {
-                data.products.forEach((element) => {
-                    arr.push(element)
-                }); console.log(arr)
-                return arr;
-            }
-            keac()
+      .then(data => data.json())
+      .then(data => {
+        let arr = [];
+        let keac = () => {
+          data.products.forEach((element) => {
+            arr.push(element)
+          }); console.log(arr)
+          return arr;
+        }
+        keac()
 
-    this.setState({
-      // menu: [
-      //   { id: 1, name: 'Café', price: 15 },
-      //   { id: 2, name: 'Té', price: 10 },
-      //   { id: 3, name: 'Chocolate', price: 20 }]
-         menu: arr
-    })
-  })
+        this.setState({
+          // menu: [
+          //   { id: 1, name: 'Café', price: 15 },
+          //   { id: 2, name: 'Té', price: 10 },
+          //   { id: 3, name: 'Chocolate', price: 20 }]
+          menu: arr
+        })
+      })
   }
-  
+
   //CUANDO UTILIZO ARROW FUNCTION SE HEREDAN LAS PROPIEDADES
   //DEL PADRE, O SEA DE LA CLASE
   addProduct = (id, price, value) => {
-    let newElement= {
-        name: value,
-        price:price,
-        id: id
-     } 
-
-      console.log(newElement)
-
-       this.setState({
-        order: [...this.state.order, newElement]
-        })    
-     }
-
-   glory = () => {
-     console.log(this.state.order)
-       let databody = this.state.order
-        
-     fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders', {
-               method: 'POST',
-               body: JSON.stringify(databody)
-           }).then(res => res.json())
-           .then(data => console.log(data))
-           .catch(err => console.log(err.message));
+    let newElement = {
+      name: value,
+      price: price,
+      id: id
     }
+
+    console.log(newElement)
+
+    this.setState({
+      order: [...this.state.order, newElement]
+    })
+  }
+
+  glory = () => {
+    console.log(this.state.order)
+    let databody = this.state.order
+
+    fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders', {
+      method: 'POST',
+      body: JSON.stringify(databody)
+    }).then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err.message));
+  }
 
 
 
@@ -76,13 +76,13 @@ class Create extends Component {
     console.log(command);
     return (
       <div>
-        <Cancel /> <Send glory={this.glory}/>
-        <h1>Selecciona los elementos del menú que desees agregar a la comanda</h1>
+        <Cancel /> <Send glory={this.glory} />
+        <h1>Ne-koffee</h1>
         <RenderCommand
-        order={this.state.order}/>
-        <MenuItems 
-        menu={this.state.menu}
-        addProduct={this.addProduct} />
+          order={this.state.order} />
+        <MenuItems
+          menu={this.state.menu}
+          addProduct={this.addProduct} />
 
       </div>
     );
