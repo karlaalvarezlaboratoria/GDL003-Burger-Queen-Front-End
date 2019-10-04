@@ -12,8 +12,8 @@ class MenuItems extends Component {
         }
     }
 
-    addProduct(id, price, value) {
-        this.props.addProduct(id, price, value)
+    addProduct(_id, price, value) {
+        this.props.addProduct(_id, price, value)
 
     }
 
@@ -23,13 +23,13 @@ class MenuItems extends Component {
         return (
             <div className="menuItems">
                 <h1>Select Item</h1>
-                {this.props.menu.map((command, id) => (
+                {this.props.menu.map((command, _id) => (
                     <input
-                        key={id}
+                        key={_id}
                         type='button'
-                        id={command.id}
+                        id={command._id}
                         className='button'
-                        onClick={() => this.addProduct(command.id, command.price, command.name)}
+                        onClick={() => this.addProduct(command._id, command.price, command.name)}
                         value={command.name}></input>
                 ))
                 }

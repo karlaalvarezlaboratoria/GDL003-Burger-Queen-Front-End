@@ -10,18 +10,6 @@ class RenderCommand extends Component {
         }
     }
 
-    // componentWillMount() {
-    //     console.log("HELLO");
-    //     console.log(this.props.order);
-    //     const prueba = this.props.order
-    //     let total = prueba.reduce((obj, data) => { obj += data.price; return obj; }, 0)
-    //     console.log(total);
-    //     console.log(this.props.price)
-    //    const total = this.props.order.price.reduce((totalToPay, item)=> { return totalToPay + item});
-    //    console.log(total);
-    //    return total;
-    //}
-
     render() {
         console.log(this.props.order);
         const prueba = this.props.order

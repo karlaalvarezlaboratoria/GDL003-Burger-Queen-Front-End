@@ -4,6 +4,7 @@ import RenderCommand from './RenderCommand';
 import MenuItems from './MenuItems';
 import Cancel from './CancelComand';
 import Send from './SendCommand';
+import uuidv4 from  'uuid/v4';
 
 class Create extends Component {
   constructor() {
@@ -42,11 +43,12 @@ class Create extends Component {
 
   //CUANDO UTILIZO ARROW FUNCTION SE HEREDAN LAS PROPIEDADES
   //DEL PADRE, O SEA DE LA CLASE
-  addProduct = (id, price, value) => {
+  addProduct = (_id, price, value) => {
     let newElement = {
       name: value,
       price: price,
-      id: id
+      id: _id,
+      uuid: uuidv4()
     }
 
     console.log(newElement)
