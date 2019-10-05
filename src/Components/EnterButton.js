@@ -6,7 +6,7 @@ import './CancelComand.css'
 const EnterButton = ({ history }) => (
   <button
     type="button"
-    onClick={() => history.push('/create')}
+    onClick={() => history.push('/select')}
   >
     Enter
   </button>
