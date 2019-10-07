@@ -8,8 +8,10 @@ function Enter() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="NekoffeeLogo" alt="logo" />
-        <input className='Input' type= 'text' >
-        </input>
+        <p>User</p>
+        <input className='User' type='text' />
+        <p>Password</p>
+        <input className='Password' type='password' />
         <EnterButton/>
       </header>
     </div>
