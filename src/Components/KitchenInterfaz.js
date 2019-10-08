@@ -1,5 +1,5 @@
      import React, { Component } from 'react';
-    // import './RenderCommand.css';
+    // import './Kitchen.css';
     // import './MenuItems.jsx';
 
     class Kitchen extends Component {
@@ -13,23 +13,15 @@
         componentDidMount() {
             fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders')
               .then(data => data.json())
-              .then(data => { console.log(data.orders)})
-        //         let arr = [];
-        //         let keac = () => {
-        //           data.orders.forEach((element) => {
-        //             arr.push(element)
-        //           }); console.log(arr)
-        //           return arr;
-        //         }
-        //         keac()
-        
-        //         this.setState({
-        //           orders: arr
-        //         })
-        //       })
-           }
+              .then(data => 
+                this.setState({
+                   orders: data.orders
+                 })
+                )
+            }
         
         render() {
+            let orders= this.state.orders
             return (
             <div>
                 <button
@@ -42,32 +34,44 @@
                          <tbody>
                              <th>No.</th>
                              <th>Product</th>
-                             <th>Price</th>
+                             <th>Status</th>
                              <th></th>
-                             {this.state.orders.map((element, id, uuid) => (
-                                <tr key={id} >
-                                    <td>{id + 1}</td>
-                                    <td>{element.name}</td>
-                                    <td>{element.price}</td>
-                                    {/* <td><button 
-                                    className= "DeleteElement" 
-                                    uuid= {uuid}
-                                    onClick = {()=> this.delete(uuid)}
-                                    >Delete</button></td> */}
-                                </tr>
-                            )
+                             {orders.map((element) => 
+                               element.order.map((el, id) => 
+                               <tr key={element._id}>
+                               <td>{id+1}</td>
+                               <td>{el.name}</td>
+                               <td></td>
+                               <td><button>DONE</button></td>
+                                
+                                    
+
+                               </tr>
+                               )
+                               // element.order.map((el, id) => console.log(id))
+                                //  <tr key={id} >
+                                //      <td>{id + 1}</td>
+                                //      <td>{element.name}</td>
+                                //      <td>{element.price}</td>
+                                //      <td><button 
+                                //     className= "DeleteElement" 
+                                //     //uuid= {uuid}
+                                //    // onClick = {()=> this.delete(uuid)}
+                                //     >Delete</button></td>
+                                // </tr>
+                            
                             )}
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td>#</td>
-                                <td>Total</td>
-                                <td></td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                </div>
+                         </tbody>
+                         <tfoot>
+                             <tr>
+                                 <td>#</td>
+                                 <td>Total</td>
+                                 <td></td>
+                             </tr>
+                         </tfoot>
+                     </table>
+                 </div>
+                 </div>
             )
         }
 
