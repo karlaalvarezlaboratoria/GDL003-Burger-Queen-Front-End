@@ -46,16 +46,20 @@ class Create extends Component {
       order: [...this.state.order, newElement]
     })
   }
-  //const bren = 'http://172.17.33.60
+   
 
   glory = () => {
-    console.log(this.state.order)
+    let bren = 'http://172.17.33.60:3000/api/orders'
     let databody = this.state.order
-    console.log(JSON.stringify(databody))
+    console.log(JSON.stringify({order: databody}))
     fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders', {
-      method: 'POST',
-      body: JSON.stringify(databody)
-    }).then(res => res.json())
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }, 
+    method: 'POST',
+      body: JSON.stringify({order: databody})
+        }).then(res => res.json())
       .then(data => console.log(data))
       .catch(err => console.log(err.message));
   }
