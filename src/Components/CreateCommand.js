@@ -18,28 +18,17 @@ class Create extends Component {
     //SEA EL DE LA CLASE Y NO EL DE LA FUNCIÓN.
     //this.addProduct = this.addProduct.bind(this);
   }
+  
+  //SE ELIMINA VERBOSE
   componentDidMount() {
     fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/products')
       .then(data => data.json())
-      .then(data => {
-        let arr = [];
-        let keac = () => {
-          data.products.forEach((element) => {
-            arr.push(element)
-          }); console.log(arr)
-          return arr;
-        }
-        keac()
-
+      .then(data => 
         this.setState({
-          // menu: [
-          //   { id: 1, name: 'Café', price: 15 },
-          //   { id: 2, name: 'Té', price: 10 },
-          //   { id: 3, name: 'Chocolate', price: 20 }]
-          menu: arr
+          menu: data.products
         })
-      })
-  }
+      )
+      }
 
   //CUANDO UTILIZO ARROW FUNCTION SE HEREDAN LAS PROPIEDADES
   //DEL PADRE, O SEA DE LA CLASE
@@ -57,15 +46,21 @@ class Create extends Component {
       order: [...this.state.order, newElement]
     })
   }
+   
 
   glory = () => {
-    console.log(this.state.order)
+    let bren = 'http://172.17.33.60:3000/api/orders'
+    //let brenDeploy = 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders'
     let databody = this.state.order
-
-    fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders', {
+    console.log(JSON.stringify({order: databody}))
+    fetch(bren, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }, 
       method: 'POST',
-      body: JSON.stringify(databody)
-    }).then(res => res.json())
+      body: JSON.stringify({order: databody})
+        }).then(res => res.json())
       .then(data => console.log(data))
       .catch(err => console.log(err.message));
   }
