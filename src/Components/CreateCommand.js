@@ -50,15 +50,15 @@ class Create extends Component {
 
   glory = () => {
     let bren = 'http://172.17.33.60:3000/api/orders'
+    //let brenDeploy = 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders'
     let databody = this.state.order
     console.log(JSON.stringify({order: databody}))
-    fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders', {
+    fetch(bren, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }, 
-      mode: 'no-cors',
-    method: 'POST',
+      method: 'POST',
       body: JSON.stringify({order: databody})
         }).then(res => res.json())
       .then(data => console.log(data))
