@@ -32,34 +32,20 @@
                      <h1>Aqui va la tabla de la comanda hecha</h1>
                      <table id='menuList'>
                          <tbody>
-                             <th>No.</th>
                              <th>Product</th>
                              <th>Status</th>
                              <th></th>
-                             {orders.map((element) => 
-                               element.order.map((el, id) => 
+                             {orders.map((element) =>
                                <tr key={element._id}>
-                               <td>{id+1}</td>
-                               <td>{el.name}</td>
-                               <td></td>
-                               <td><button>DONE</button></td>
-                                
-                                    
-
-                               </tr>
-                               )
-                               // element.order.map((el, id) => console.log(id))
-                                //  <tr key={id} >
-                                //      <td>{id + 1}</td>
-                                //      <td>{element.name}</td>
-                                //      <td>{element.price}</td>
-                                //      <td><button 
-                                //     className= "DeleteElement" 
-                                //     //uuid= {uuid}
-                                //    // onClick = {()=> this.delete(uuid)}
-                                //     >Delete</button></td>
-                                // </tr>
-                            
+                               {element.order.map((el, id) => 
+                               <tr>
+                                 <td>{id+1}</td>
+                                 <td>{el.name}</td>
+                               </tr>                        
+                               )}
+                               <td>{element.status}</td>
+                               <td><button>Algo</button></td>  
+                               </tr>                           
                             )}
                          </tbody>
                          <tfoot>
