@@ -28,11 +28,10 @@
     color:#ffffff;
     cursor:pointer;
     display:inline-block;
-    float: flex;
 	font-family:Arial;
 	font-size:15px;
     font-weight:bold;
-    height: 3rem;
+    height: auto;
     margin: 1rem;
 	text-decoration:none;
     text-shadow:0px 1px 0px #ff8080;

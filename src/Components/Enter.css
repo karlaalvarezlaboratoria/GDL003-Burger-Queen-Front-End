@@ -2,6 +2,11 @@ body{
 	background: #f9e1d3;
 }
 
+.loginForm{
+	margin-left: auto;
+	margin-right:auto;
+}
+
 .NekoffeeLogo{
 	background: #c6f1d6;
 	-moz-box-shadow:inset 0px 1px 0px 0px #c6f1d6;
