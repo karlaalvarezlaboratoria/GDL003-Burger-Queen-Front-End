@@ -22,7 +22,7 @@ class Create extends Component {
   //SE ELIMINA VERBOSE
   componentDidMount() {
     //let keacLocal = 'http://172.17.30.163:3000/api/orders'
-    let deploy = 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/products'
+    let deploy = 'https://app-nekoffee.herokuapp.com/api/products'
     fetch(deploy)
       .then(data => data.json())
       .then(data => 
@@ -51,12 +51,12 @@ class Create extends Component {
    
 
   glory = () => {
-    let keacLocal = 'http://172.17.30.163:3000/api/orders'
+    //let keacLocal = 'http://172.17.30.163:3000/api/orders'
     //let bren = 'http://172.17.33.133:3000/api/orders'
-   // let brenDeploy = 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders'
+    let deploy = 'https://app-nekoffee.herokuapp.com/api/orders'
     let databody = this.state.order
     console.log(JSON.stringify({order: databody}))
-    fetch(keacLocal, {
+    fetch(deploy, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
