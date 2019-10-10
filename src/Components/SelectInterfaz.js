@@ -1,36 +1,33 @@
 import React, { Component } from 'react';
-import './Enter.css';
-import { withRouter } from 'react-router-dom'
-import './CancelComand.css'
+import { withRouter } from 'react-router-dom';
+import './SelectInterfaz.css';
 
 class Select extends Component {
-    constructor() {
-        super();
-        this.state = {}
-    }
+  constructor() {
+    super();
+    this.state = {}
+  }
 
-//   glory(){
-//       this.props.glory()
-//       this.props.history.push('/')
-//   }
-    
-  render(){
-    return(
-  <div>
-  <button
-    onClick={() => this.props.history.push('/')}>
-    X
-  </button>
-  <button
-  onClick={() => this.props.history.push('/kitchen')}>
-  Kitchen
-</button>
-<button
-    onClick={() => this.props.history.push('/create')}>
-    Commander
-  </button>
-  </div>
-    )}
+  //   glory(){
+  //       this.props.glory()
+  //       this.props.history.push('/')
+  //   }
+
+  render() {
+    return (
+      <div>
+        <button onClick={() => this.props.history.push('/create')}>
+          New Command
+        </button>
+        <button onClick={() => this.props.history.push('/orders')}>
+          Edit Command
+        </button>
+        <button onClick={() => this.props.history.push('/')}>
+          Exit
+        </button>
+      </div>
+    )
+  }
 }
 
 export default withRouter(Select);

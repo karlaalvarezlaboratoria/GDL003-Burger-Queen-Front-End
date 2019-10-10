@@ -82,8 +82,6 @@ class Create extends Component {
       })
     }
 
-
-
   render() {
     console.log(this.state.order)
     const command = this.state;
