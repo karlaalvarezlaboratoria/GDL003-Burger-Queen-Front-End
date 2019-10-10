@@ -55,7 +55,7 @@ class Kitchen extends Component {
     let orders = this.state.orders;
     return (
       <div>
-        <button onClick={() => this.props.history.push('/select')}>X</button>
+        <button onClick={() => this.props.history.push('/')}>X</button>
         <h1>Esta es mi cocina</h1>
 
         <div className="renderCommand">

@@ -1,46 +1,82 @@
 import React, { Component } from 'react';
 import logo from './Ne-koffee Aqua oscuro.png';
 import './Enter.css';
+import { withRouter } from 'react-router-dom';
 
 class Enter extends Component {
   constructor() {
     super();
-    this.sendToken = this.sendToken.bind(this);
+    this.tokenWaiter = this.tokenWaiter.bind(this);
+    this.tokenKitchen = this.tokenKitchen.bind(this);
+    this.state = {
+      token: ""
+    }
   }
 
-  sendToken() {
-    let user = this.user.value;
+  tokenWaiter() {
+    let user = 'Nekoffee';
     console.log(user)
     let password = this.password.value;
     console.log(password)
-    var data = { name: user, password: password };
-    var karina= 'http://172.17.32.63:3000/api/authenticate'
-   fetch(/*'https://gdl003-burger-queen-back-end.engkarinacabrera.now.sh/api/authenticate'*/ karina, {
+    var sendPassword = 'https://app-nekoffee.herokuapp.com/api/authenticate'
+    fetch(sendPassword, {
       method: 'POST',
-      body: data,
+      body: JSON.stringify({ name: user, password: password })
     })
-      .then(data => {
+      .then(response => {
+        return response.json();
+      }).then(data => {
         console.log(data)
+        const token = data.token;
+        this.setState({
+          token: token
+        })
+      }).catch(error => {
+        return console.log(error)
       })
+    this.props.history.push('/select')
+  }
+
+  tokenKitchen() {
+    let user = 'Nekoffee';
+    console.log(user)
+    let password = this.password.value;
+    console.log(password)
+    var sendPassword = 'https://app-nekoffee.herokuapp.com/api/authenticate'
+    fetch(sendPassword, {
+      method: 'POST',
+      body: JSON.stringify({ name: user, password: password })
+    })
+      .then(response => {
+        return response.json();
+      }).then(data => {
+        console.log(data)
+        const token = data.token;
+        this.setState({
+          token: token
+        })
+      }).catch(error => {
+        return console.log(error)
+      })
+    this.props.history.push('/kitchen')
   }
 
   render() {
+    console.log(this.state.token)
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="NekoffeeLogo" alt="logo" />
           <form className='loginForm' method='post'>
-            <p>User</p>
-            <input className='User' type='text' ref={input => { this.user = input; }} />
             <p>Password</p>
             <input className='Password' type='password' ref={input => { this.password = input; }} />
             <br></br>
-            <button
-              type="button"
-              onClick={this.sendToken}
-            >
-              Enter
-  </button>
+            <button type="button" onClick={this.tokenWaiter}>
+              Waiter
+            </button>
+            <button type="button" onClick={this.tokenKitchen}>
+              Kitchen
+            </button>
           </form>
         </header>
       </div>
@@ -49,4 +85,4 @@ class Enter extends Component {
 
 }
 
-export default Enter;
+export default withRouter(Enter);

@@ -73,13 +73,24 @@ El usuario puede eliminar productos de su comanda o cancelarla antes de ser envi
 - El usuario puede seleccionar productos de la lista comandada.
 - Botón para eliminar el elemento seleccionado de la comanda
 - Botón para cancelar comanda completa y volver a página anterior
+
 #### Historia de usuario 4
+La comanda al ser enviada aparece en la interfaz de cocina
+
+**DoD**
+- Interfaz para seleccionar funciones de cocina o mesero
+- Interfaz de cocina
+- Se imprime en la interfaz las comandas hechas con su respectivo status
+- Botón en cada comanda que cambia el estado a DONE
+
+#### Historia de usuario 5
 El usuario puede editar una comanda ya enviada.
 
 **DoD**
-- Botón de "Agregar producto", que direccione a página para agregar productos.
+- Botón de "Agregar producto", que lleve a interfaz para agregar productos.
 - Que se guarde el nuevo elemento en la misma comanda.
-#### Historia de usuario 5
+
+#### Historia de usuario 6
 El usuario puede eliminar el producto de una comanda ya enviada en caso de cancelación.
 
 **DoD**

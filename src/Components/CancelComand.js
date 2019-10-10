@@ -5,7 +5,7 @@ import './CancelComand.css'
 const Cancel = ({ history }) => (
   <button
     type="button"
-    onClick={() => history.push('/')}
+    onClick={() => history.push('/select')}
   >
     X
   </button>
