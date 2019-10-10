@@ -21,7 +21,9 @@ class Create extends Component {
   
   //SE ELIMINA VERBOSE
   componentDidMount() {
-    fetch('https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/products')
+    //let keacLocal = 'http://172.17.30.163:3000/api/orders'
+    let deploy = 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/products'
+    fetch(deploy)
       .then(data => data.json())
       .then(data => 
         this.setState({
@@ -49,11 +51,12 @@ class Create extends Component {
    
 
   glory = () => {
-    let bren = 'http://172.17.33.60:3000/api/orders'
-    //let brenDeploy = 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders'
+    let keacLocal = 'http://172.17.30.163:3000/api/orders'
+    //let bren = 'http://172.17.33.133:3000/api/orders'
+   // let brenDeploy = 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/orders'
     let databody = this.state.order
     console.log(JSON.stringify({order: databody}))
-    fetch(bren, {
+    fetch(keacLocal, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
