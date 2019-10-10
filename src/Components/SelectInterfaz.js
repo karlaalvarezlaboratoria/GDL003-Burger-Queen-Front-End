@@ -15,14 +15,14 @@ class Select extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={() => this.props.history.push('/create')}>
+      <div className='waiter'>
+        <button className='buttonsWaiter' onClick={() => this.props.history.push('/create')}>
           New Command
         </button>
-        <button onClick={() => this.props.history.push('/orders')}>
+        <button className='buttonsWaiter' onClick={() => this.props.history.push('/orders')}>
           Edit Command
         </button>
-        <button onClick={() => this.props.history.push('/')}>
+        <button className='buttonsWaiter' onClick={() => this.props.history.push('/')}>
           Exit
         </button>
       </div>
