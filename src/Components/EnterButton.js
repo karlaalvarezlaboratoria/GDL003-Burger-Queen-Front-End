@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Enter.css';
-import { withRouter } from 'react-router-dom'
 import './CancelComand.css'
 
-const EnterButton = ({ history }) => (
-  <button
-    type="button"
-    onClick={() => history.push('/select')}
-  >
-    Enter
+class EnterButton extends Component {
+  render() {
+    return (
+      <button
+        type="button"
+        onClick={() => this.props.sendToken}
+      >
+        Enter
   </button>
-);
+    )
+  }
+}
 
-export default withRouter(EnterButton);
+export default EnterButton;
