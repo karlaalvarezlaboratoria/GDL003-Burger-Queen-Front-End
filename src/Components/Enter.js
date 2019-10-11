@@ -32,12 +32,19 @@ class Enter extends Component {
       }).then(data => {
         console.log(data)
         const token = data.token;
+        console.log(data.token)
         this.setState({
           token: token
         })
+        return token
+      }).then(token => {
+        localStorage.setItem('Token', token);
+        let tokenLocal = localStorage.getItem('Token');
+        return console.log(tokenLocal);
       }).catch(error => {
-        return console.log(error)
+        console.log(error)
       })
+    console.log(this.state.token)
     this.props.history.push('/select')
   }
 
@@ -63,6 +70,11 @@ class Enter extends Component {
         this.setState({
           token: token
         })
+        return token
+      }).then(token => {
+        localStorage.setItem('Token', token);
+        let tokenLocal = localStorage.getItem('Token');
+        return console.log(tokenLocal);
       }).catch(error => {
         return console.log(error)
       })

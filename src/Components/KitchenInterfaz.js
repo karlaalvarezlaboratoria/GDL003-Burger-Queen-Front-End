@@ -12,7 +12,14 @@ class Kitchen extends Component {
 
   componentDidMount() {
     let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
-    fetch(deploy)
+    let tokenLocal = localStorage.getItem('Token');
+    let tokenHeader = 'Bearer ' + tokenLocal
+    console.log(tokenHeader)
+    fetch(deploy, {
+      headers: {
+        'authorization': tokenHeader
+      }
+    })
       .then(data => data.json())
       .then(data =>
         this.setState({
@@ -24,12 +31,15 @@ class Kitchen extends Component {
   done = id => {
     let deployId = 'https://app-nekoffee.herokuapp.com/api/orders/' + id;
     let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
-
+    let tokenLocal = localStorage.getItem('Token');
+    let tokenHeader = 'Bearer ' + tokenLocal
+    console.log(tokenHeader)
     console.log(JSON.stringify({ status: 'Done' }));
     fetch(deployId, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        'authorization': tokenHeader
       },
       method: 'PUT',
       body: JSON.stringify({
@@ -38,7 +48,11 @@ class Kitchen extends Component {
       }),
     })
       .then(() =>
-        fetch(deploy)
+        fetch(deploy, {
+          headers: {
+            'authorization': tokenHeader
+          }
+        })
           .then(data => data.json())
           .then(data =>
             this.setState({

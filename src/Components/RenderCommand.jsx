@@ -14,20 +14,6 @@ class RenderCommand extends Component {
         this.props.delete(uuid)
 
     }
-// delete = (uuid) => {
-//   let order = this.props.order
-//   let keac = uuid;
-//   let glory = order.filter((el) => {
-//     console.log(el)
-//     return el.uuid!== keac 
-// })
-// console.log(glory)
-
-// this.setState({
-//     order: glory   
-//   })
-// }
-
 
     render() {
         console.log(this.props.order);
@@ -49,7 +35,7 @@ class RenderCommand extends Component {
                                 <td>{element.price}</td>
                                 <td>
                                     <button
-                                    onClick = {()=>this.delete(element.uuid)}>
+                                        onClick={() => this.delete(element.uuid)}>
                                         Delete
                                     </button></td>
                             </tr>

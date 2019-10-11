@@ -4,7 +4,7 @@ import RenderCommand from './RenderCommand';
 import MenuItems from './MenuItems';
 import Cancel from './CancelComand';
 import Send from './SendCommand';
-import uuidv4 from  'uuid/v4';
+import uuidv4 from 'uuid/v4';
 
 class Create extends Component {
   constructor() {
@@ -18,19 +18,26 @@ class Create extends Component {
     //SEA EL DE LA CLASE Y NO EL DE LA FUNCIÓN.
     //this.addProduct = this.addProduct.bind(this);
   }
-  
+
   //SE ELIMINA VERBOSE
   componentDidMount() {
     //let keacLocal = 'http://172.17.30.163:3000/api/orders'
     let deploy = 'https://app-nekoffee.herokuapp.com/api/products'
-    fetch(deploy)
+    let tokenLocal = localStorage.getItem('Token');
+    let tokenHeader = 'Bearer ' + tokenLocal
+    console.log(tokenHeader)
+    fetch(deploy, {
+      headers: {
+        'authorization': tokenHeader
+      }
+    })
       .then(data => data.json())
-      .then(data => 
+      .then(data =>
         this.setState({
           menu: data.products
         })
       )
-      }
+  }
 
   //CUANDO UTILIZO ARROW FUNCTION SE HEREDAN LAS PROPIEDADES
   //DEL PADRE, O SEA DE LA CLASE
@@ -48,47 +55,52 @@ class Create extends Component {
       order: [...this.state.order, newElement]
     })
   }
-   
+
 
   glory = () => {
     //let keacLocal = 'http://172.17.30.163:3000/api/orders'
     //let bren = 'http://172.17.33.133:3000/api/orders'
     let deploy = 'https://app-nekoffee.herokuapp.com/api/orders'
+    let tokenLocal = localStorage.getItem('Token');
+    let tokenHeader = 'Bearer ' + tokenLocal
+    console.log(tokenHeader)
     let databody = this.state.order
-    console.log(JSON.stringify({order: databody}))
+    console.log(JSON.stringify({ order: databody }))
     fetch(deploy, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-      }, 
+        'authorization': tokenHeader
+      },
       method: 'POST',
-      body: JSON.stringify({order: databody})
-        }).then(res => res.json())
+      body: JSON.stringify({ order: databody })
+    }).then(res => res.json())
       .then(data => console.log(data))
       .catch(err => console.log(err.message));
   }
 
   delete = (uuid) => {
-      let order = this.state.order
-      let keac = uuid;
-      let glory = order.filter((el) => {
-        console.log(el)
-        return el.uuid!== keac 
+    let order = this.state.order
+    let keac = uuid;
+    let glory = order.filter((el) => {
+      console.log(el)
+      return el.uuid !== keac
     })
     console.log(glory)
-    
+
     this.setState({
-        order: glory   
-      })
-    }
+      order: glory
+    })
+  }
 
   render() {
+
     console.log(this.state.order)
     const command = this.state;
     console.log(command);
     return (
       <div>
-       <Send glory={this.glory} /> <Cancel /> 
+        <Send glory={this.glory} /> <Cancel />
         <RenderCommand
           delete={this.delete}
           order={this.state.order} />
