@@ -22,13 +22,13 @@ class MenuItems extends Component {
     render() {
         return (
             <div className="menuItems">
-                <h1>Select Item</h1>
+                <h3>Select Item</h3>
                 {this.props.menu.map((command, _id) => (
                     <input
                         key={_id}
                         type='button'
                         id={command._id}
-                        className='button'
+                        className='buttonMenu'
                         onClick={() => this.addProduct(command._id, command.price, command.name)}
                         value={command.name}></input>
                 ))

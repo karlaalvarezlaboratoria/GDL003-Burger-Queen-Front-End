@@ -20,6 +20,10 @@ class Enter extends Component {
     console.log(password)
     var sendPassword = 'https://app-nekoffee.herokuapp.com/api/authenticate'
     fetch(sendPassword, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
       method: 'POST',
       body: JSON.stringify({ name: user, password: password })
     })
@@ -44,6 +48,10 @@ class Enter extends Component {
     console.log(password)
     var sendPassword = 'https://app-nekoffee.herokuapp.com/api/authenticate'
     fetch(sendPassword, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
       method: 'POST',
       body: JSON.stringify({ name: user, password: password })
     })

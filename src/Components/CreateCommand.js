@@ -88,8 +88,7 @@ class Create extends Component {
     console.log(command);
     return (
       <div>
-        <Cancel /> <Send glory={this.glory} />
-        <h1>Ne-koffee</h1>
+       <Send glory={this.glory} /> <Cancel /> 
         <RenderCommand
           delete={this.delete}
           order={this.state.order} />
