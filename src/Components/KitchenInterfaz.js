@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-// import './Kitchen.css';
-// import './MenuItems.jsx';
+import './kitchen.css';
+import logo from './Ne-koffee Aqua oscuro.png';
+
 
 class Kitchen extends Component {
   constructor(props) {
@@ -55,12 +56,15 @@ class Kitchen extends Component {
     let orders = this.state.orders;
     return (
       <div>
-        <button onClick={() => this.props.history.push('/')}>X</button>
-        <h1>Esta es mi cocina</h1>
+        <header>
+          <img src={logo} className="NekoffeeLogo" alt="logo" />
+          <button className= 'buttonCloseKitchen' onClick={() => this.props.history.push('/')}>X</button>
+        </header>
+        <h1>KITCHEN</h1>
 
-        <div className="renderCommand">
-          <h1>Aqui va la tabla de la comanda hecha</h1>
-          <table id="menuList">
+        <div className="kitchen">
+        
+          <table id="kitchenList">
             <tbody>
               <th>Product</th>
               <th>Status</th>
@@ -72,12 +76,12 @@ class Kitchen extends Component {
                       {element.order.map((el, id) => (
                         <tr>
                           <td>{id + 1}</td>
-                          <td>{el.name}</td>
+                          <td className= 'Product'>{el.name}</td>
                         </tr>
                       ))}
                       <td>{element.status}</td>
                       <td>
-                        <button id={element._id} onClick={() => this.done(element._id)}>
+                        <button className = 'buttonKitchen' id={element._id} onClick={() => this.done(element._id)}>
                           Done
                         </button>
                       </td>

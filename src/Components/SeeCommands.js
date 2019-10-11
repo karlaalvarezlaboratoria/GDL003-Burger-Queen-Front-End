@@ -84,10 +84,7 @@ class Orders extends Component {
     return (
       <div>
         <button onClick={() => this.props.history.push('/select')}>X</button>
-        <h1>Esta es mi cocina</h1>
-
-        <div className="renderCommand">
-          <h1>Aqui va la tabla de la comanda hecha</h1>
+        <div className="seeCommand">
           <table id="menuList">
             <tbody>
               <th>Product</th>
