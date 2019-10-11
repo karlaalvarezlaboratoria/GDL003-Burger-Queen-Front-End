@@ -3,11 +3,14 @@ import {Route, Redirect} from 'react-router-dom';
 
 
 export const ProtectedRoute = ({component: Component, ...rest})=> {
+    let tokenLocal = localStorage.getItem('Token');
+    let tokenHeader = 'Bearer ' + tokenLocal
+    console.log(tokenHeader)
     return (
         <Route 
         {...rest} 
         render = {props => {
-            if (true){
+            if (tokenLocal !== 'undefined'){
                 return <Component {...props}/>;
             }
              else  {

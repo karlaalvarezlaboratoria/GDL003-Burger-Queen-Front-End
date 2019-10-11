@@ -8,11 +8,6 @@ class Select extends Component {
     this.state = {}
   }
 
-  //   glory(){
-  //       this.props.glory()
-  //       this.props.history.push('/')
-  //   }
-
   render() {
     return (
       <div className='waiter'>

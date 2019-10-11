@@ -9,8 +9,15 @@ class Orders extends Component {
   }
 
   componentDidMount() {
+    let tokenLocal = localStorage.getItem('Token');
+    let tokenHeader = 'Bearer ' + tokenLocal
+    console.log(tokenHeader)
     let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
-    fetch(deploy)
+    fetch(deploy, {
+      headers: {
+        'authorization': tokenHeader
+      }
+    })
       .then(data => data.json())
       .then(data =>
         this.setState({
@@ -22,12 +29,15 @@ class Orders extends Component {
   print = id => {
     let deployId = 'https://app-nekoffee.herokuapp.com/api/orders/' + id;
     let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
-
+    let tokenLocal = localStorage.getItem('Token');
+    let tokenHeader = 'Bearer ' + tokenLocal
+    console.log(tokenHeader)
     console.log(JSON.stringify({ status: 'Print' }));
     fetch(deployId, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        'authorization': tokenHeader
       },
       method: 'PUT',
       body: JSON.stringify({
@@ -36,7 +46,11 @@ class Orders extends Component {
       }),
     })
       .then(() =>
-        fetch(deploy)
+        fetch(deploy, {
+          headers: {
+            'authorization': tokenHeader
+          }
+        })
           .then(data => data.json())
           .then(data =>
             this.setState({
@@ -52,12 +66,15 @@ class Orders extends Component {
   cancel = id => {
     let deployId = 'https://app-nekoffee.herokuapp.com/api/orders/' + id;
     let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
-
+    let tokenLocal = localStorage.getItem('Token');
+    let tokenHeader = 'Bearer ' + tokenLocal
+    console.log(tokenHeader)
     console.log(JSON.stringify({ status: 'Cancel' }));
     fetch(deployId, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        'authorization': tokenHeader
       },
       method: 'PUT',
       body: JSON.stringify({
@@ -66,7 +83,11 @@ class Orders extends Component {
       }),
     })
       .then(() =>
-        fetch(deploy)
+        fetch(deploy, {
+          headers: {
+            'authorization': tokenHeader
+          }
+        })
           .then(data => data.json())
           .then(data =>
             this.setState({
@@ -112,7 +133,7 @@ class Orders extends Component {
                     </tr>
                   );
                 }
-             }
+              }
               )}
             </tbody>
           </table>
