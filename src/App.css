@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet");
+
 .App {
   text-align: center;
 }
@@ -8,8 +10,8 @@
 
 .App-header {
   align-items: center;
-  background-color: #ffba92;
-  color: white;
+    background: url('./Coffee-beans.jpg');
+ color: white;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -31,4 +33,7 @@
   width: 5rem;
   height: 3rem;
   margin: 0
+}
+body{
+	background: url('https://freedesignfile.com/upload/2014/03/Coffee-beans-5.jpg');
 }

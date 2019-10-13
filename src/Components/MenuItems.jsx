@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './MenuItems.css';
 import './RenderCommand';
 
-
 class MenuItems extends Component {
     constructor(props) {
         super(props);
@@ -17,12 +16,10 @@ class MenuItems extends Component {
 
     }
 
-
-
     render() {
         return (
-            <div className="menuItems">
-                <h3>Select Item</h3>
+            <div className='menuItems'>
+                <h1 className='title'>Select Item</h1>
                 {this.props.menu.map((command, _id) => (
                     <input
                         key={_id}
@@ -33,10 +30,9 @@ class MenuItems extends Component {
                         value={command.name}></input>
                 ))
                 }
-
             </div>
-
         )
     }
 }
+
 export default MenuItems;

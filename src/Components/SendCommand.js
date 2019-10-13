@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Enter.css';
 import { withRouter } from 'react-router-dom'
-import './CancelComand.css'
+import './CancelCommand.css'
 
 class Send extends Component {
   constructor() {
@@ -9,16 +9,16 @@ class Send extends Component {
     this.state = {}
   }
 
-  glory() {
-    this.props.glory()
-    this.props.history.push('/')
+  sendCommand() {
+    this.props.sendCommand()
+    this.props.history.push('/select')
   }
 
   render() {
     return (
       <button
-        type="button"
-        onClick={() => this.glory()}
+        type='button'
+        onClick={() => this.sendCommand()}
       >
         Send
   </button>

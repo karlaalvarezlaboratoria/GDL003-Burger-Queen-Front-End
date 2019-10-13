@@ -1,7 +1,5 @@
-.waiter{
-    align-items: center;
-    justify-content:center;
-    margin-top: 30%;
+body{
+    background:url('./fondoCat.jpg');
 }
 .buttonsWaiter{
     display:inline-block;
@@ -9,4 +7,10 @@
     height: 6rem;
     margin: 1rem;
     width: 12rem;
+}
+.waiter{
+    align-items: center;
+    font-size: 30px;
+    justify-content:center;
+    margin-top: 20%;
 }

@@ -12,17 +12,16 @@ class RenderCommand extends Component {
 
     delete(uuid) {
         this.props.delete(uuid)
-
     }
 
     render() {
         console.log(this.props.order);
-        const prueba = this.props.order
-        let total = prueba.reduce((obj, data) => { obj += data.price; return obj; }, 0)
+        const total = this.props.order
+        let totalMenu = total.reduce((obj, data) => { obj += data.price; return obj; }, 0)
         console.log(total);
         return (
-            <div className="renderCommand">
-                <h1>Note Command</h1>
+            <div className='renderCommand'>
+                <h1 className='titleTable'>Note Command</h1>
                 <table id='menuList'>
                     <tbody>
                         <th>No.</th>
@@ -42,17 +41,17 @@ class RenderCommand extends Component {
                         )
                         )}
                     </tbody>
-                    <tfoot>
+                    <tfoot className='footer'>
                         <tr>
                             <td>#</td>
                             <td>Total</td>
-                            <td>${total}</td>
+                            <td>${totalMenu}</td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
         )
     }
-
 }
+
 export default RenderCommand;

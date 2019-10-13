@@ -11,6 +11,7 @@ class Select extends Component {
   render() {
     return (
       <div className='waiter'>
+        <h1 className='titleUser'>Select your action</h1>
         <button className='buttonsWaiter' onClick={() => this.props.history.push('/create')}>
           New Command
         </button>
