@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './SeeCommand.css';
+import logo from './Ne-koffee Aqua oscuro.png';
 
 class Orders extends Component {
   constructor(props) {
@@ -58,7 +60,6 @@ class Orders extends Component {
             }),
           ),
       )
-
       .then(data => console.log(data))
       .catch(err => console.log(err.message));
   };
@@ -95,7 +96,6 @@ class Orders extends Component {
             }),
           ),
       )
-
       .then(data => console.log(data))
       .catch(err => console.log(err.message));
   };
@@ -104,9 +104,17 @@ class Orders extends Component {
     let orders = this.state.orders;
     return (
       <div>
-        <button onClick={() => this.props.history.push('/select')}>X</button>
-        <div className="seeCommand">
-          <table id="menuList">
+        <header>
+          <img src={logo} className='logoSeeCommand' alt='logo' />
+          <div className='title'>
+            <h1>Orders</h1>
+          </div>
+          <button className='buttonClose' onClick={() => this.props.history.push('/select')}>
+            Exit
+        </button>
+        </header>
+        <div className='seeCommand'>
+          <table id='menuList'>
             <tbody>
               <th>Product</th>
               <th>Status</th>
@@ -116,10 +124,7 @@ class Orders extends Component {
                   return (
                     <tr key={element._id}>
                       {element.order.map((el, id) => (
-                        <tr>
-                          <td>{id + 1}</td>
-                          <td>{el.name}</td>
-                        </tr>
+                        <li>{el.name}</li>
                       ))}
                       <td>{element.status}</td>
                       <td>
@@ -142,4 +147,5 @@ class Orders extends Component {
     );
   }
 }
+
 export default Orders;

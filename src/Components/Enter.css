@@ -1,33 +1,3 @@
-body{
-	background: #f9e1d3;
-}
-
-.loginForm{
-	margin-left: auto;
-	margin-right:auto;
-}
-
-.NekoffeeLogo{
-	background: #c6f1d6;
-	-moz-box-shadow:inset 0px 1px 0px 0px #c6f1d6;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #c6f1d6;
-	box-shadow:inset 0px 1px 0px 0px #c6f1d6;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c6f1d6), color-stop(1, #1fab88));
-	background:-moz-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
-	background:-webkit-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
-	background:-o-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
-	background:-ms-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
-	background:linear-gradient(to bottom, #c6f1d6 5%, #1fab88 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6f1d6', endColorstr='#1fab88',GradientType=0);
-	border:1px solid #1fab88;
-	display:inline-block;
-	width: 50%;
-     height: 50%;
-     -moz-border-radius: 60%;
-     -webkit-border-radius: 60%;
-     border-radius: 60%;
-}
-
 button{
     -moz-box-shadow:inset 0px 1px 0px 0px #c6f1d6;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #c6f1d6;
@@ -43,16 +13,53 @@ button{
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 	border-radius:6px;
-	border:1px solid #1fab88;
-	display:inline-block;
-	cursor:pointer;
+	border:2px solid #1fab88;
 	color:#ffffff;
+	display:inline-block;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
     height: 3rem;
     margin: 1rem;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #1fab88;
+	text-shadow:1px 1px 1px #1fab88;
     width: 6rem;
+}
+.buttonUser{
+    display:inline-block;
+    font-size:20px;
+    height: 4rem;
+    margin: 1rem;
+    width: 8rem;
+}
+.loginForm{
+	margin-left: auto;
+	margin-right:auto;
+}
+.NekoffeeLogo{
+	background: #c6f1d6;
+	-moz-box-shadow:inset 0px 1px 0px 0px #c6f1d6;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #c6f1d6;
+	box-shadow:inset 0px 1px 0px 0px #c6f1d6;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c6f1d6), color-stop(1, #1fab88));
+	background:-moz-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
+	background:-webkit-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
+	background:-o-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
+	background:-ms-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
+	background:linear-gradient(to bottom, #c6f1d6 5%, #1fab88 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6f1d6', endColorstr='#1fab88',GradientType=0);
+	border:2px solid #1fab88;
+	display:inline-block;
+	width: 40%;
+    height: 50%;
+    -moz-border-radius: 60%;
+    -webkit-border-radius: 60%;
+    border-radius: 60%;
+}
+.Password{
+	padding: 5%;
+}
+.titleUser{
+	font-family: 'Dancing Script', cursive;
+	color: #31433f;
 }

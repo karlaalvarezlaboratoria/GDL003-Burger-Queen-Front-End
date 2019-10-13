@@ -1,17 +1,17 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'; 
-import {ProtectedRoute} from './ProtectedRoute'
+import {ProtectedRoute} from './ProtectedRoute';
 import Enter from './Components/Enter';
-import Create from './Components/CreateCommand'
+import Create from './Components/CreateCommand';
 import Kitchen from './Components/KitchenInterfaz';
-import Select from './Components/SelectInterfaz'
-import Orders from './Components/SeeCommands'
+import Select from './Components/SelectInterfaz';
+import Orders from './Components/SeeCommands';
+import User from './Components/ChooseUser';
 
 const Router = () => (
-
-
   <BrowserRouter>
     <Switch>
+      <ProtectedRoute path= "/user" component = {User}/>
       <ProtectedRoute path= "/create" component = {Create}/>
       <ProtectedRoute path= "/select" component = {Select}/>
       <ProtectedRoute path= "/orders" component = {Orders}/>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './kitchen.css';
+import './KitchenInterfaz.css';
 import logo from './Ne-koffee Aqua oscuro.png';
-
 
 class Kitchen extends Component {
   constructor(props) {
@@ -61,7 +60,6 @@ class Kitchen extends Component {
             }),
           ),
       )
-
       .then(data => console.log(data))
       .catch(err => console.log(err.message));
   };
@@ -69,16 +67,16 @@ class Kitchen extends Component {
   render() {
     let orders = this.state.orders;
     return (
-      <div>
+      <React.Fragment>
         <header>
-          <img src={logo} className="NekoffeeLogo" alt="logo" />
-          <button className= 'buttonCloseKitchen' onClick={() => this.props.history.push('/')}>X</button>
+          <img src={logo} className='logoKitchen' alt='logo' />
+          <div className='title'>
+            <h1>Coffee Bar</h1>
+          </div>
+          <button className='buttonCloseKitchen' onClick={() => this.props.history.push('/')}>Exit</button>
         </header>
-        <h1>KITCHEN</h1>
-
-        <div className="kitchen">
-        
-          <table id="kitchenList">
+        <div className='kitchen'>
+          <table id='kitchenList'>
             <tbody>
               <th>Product</th>
               <th>Status</th>
@@ -88,14 +86,11 @@ class Kitchen extends Component {
                   return (
                     <tr key={element._id}>
                       {element.order.map((el, id) => (
-                        <tr>
-                          <td>{id + 1}</td>
-                          <td className= 'Product'>{el.name}</td>
-                        </tr>
+                        <li className='Product'>{el.name}</li>
                       ))}
                       <td>{element.status}</td>
                       <td>
-                        <button className = 'buttonKitchen' id={element._id} onClick={() => this.done(element._id)}>
+                        <button className='buttonKitchen' id={element._id} onClick={() => this.done(element._id)}>
                           Done
                         </button>
                       </td>
@@ -106,8 +101,9 @@ class Kitchen extends Component {
             </tbody>
           </table>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
+
 export default Kitchen;

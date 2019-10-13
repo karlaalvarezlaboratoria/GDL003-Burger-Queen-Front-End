@@ -1,0 +1,12 @@
+.user{
+    align-items: center;
+    justify-content:center;
+    margin-top: 30%;
+}
+.buttonUser{
+    display:inline-block;
+    font-size:20px;
+    height: 6rem;
+    margin: 1rem;
+    width: 12rem;
+}

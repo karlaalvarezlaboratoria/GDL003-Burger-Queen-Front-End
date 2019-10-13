@@ -9,24 +9,23 @@
     margin: 2rem;
     width: 20rem;  
 }
-
+.titleTable{
+    font-family: 'Dancing Script', cursive;
+}
 #menuList {
     border-collapse: collapse;
     border: 3px solid #ddd;
     text-align: center;
     width: 100%;
 }
-
 #menuList td, #menuList th {
     border: 1px solid #ddd;
 }
-
 #menuList tr:nth-child(even) {
     background-color: #f2f2f2;
     padding: 15px;
 }
-
-#menuList th, tfoot {
+#menuList th, .footer td {
     background-color: #ff8080;
     color: white;
     padding-top: 12px;
