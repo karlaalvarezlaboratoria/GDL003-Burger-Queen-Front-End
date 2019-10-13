@@ -37,8 +37,11 @@ class Enter extends Component {
             access: true
           })
         } else {
-          alert(data.message);
+          this.setState({
+            errorPassword: true
+          })
           this.password.value = '';
+          return data.message;
         }
         const token = data.token;
         console.log(data.token)
@@ -73,6 +76,7 @@ class Enter extends Component {
               <img src={logo} className='NekoffeeLogo' alt='logo' />
               <form className='loginForm' method='post'>
                 <h1 className='titleUser'>Password</h1>
+                <p className={'messagePasswordIncorrect' + (this.state.errorPassword ? "" : " invisible")}>The password is incorrect</p> 
                 <input className='Password' type='password' ref={input => { this.password = input; }} />
                 <button type='button' onClick={this.getToken}>
                   GET TOKEN
