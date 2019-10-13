@@ -20,7 +20,7 @@ button{
 	font-size:15px;
 	font-weight:bold;
     height: 3rem;
-    margin: 1rem;
+    margin: .5rem;
 	text-decoration:none;
 	text-shadow:1px 1px 1px #1fab88;
     width: 6rem;
@@ -59,7 +59,20 @@ button{
 .Password{
 	padding: 5%;
 }
+
+.invisible{
+	display: none;
+}
+.messagePasswordIncorrect{
+	font-family: 'Dancing Script', cursive;
+	color: #31433f;
+	font-size: 20px;
+	margin: 0%;
+	font-weight: bold;
+	
+}
 .titleUser{
 	font-family: 'Dancing Script', cursive;
 	color: #31433f;
+	margin-bottom: 4px;
 }
