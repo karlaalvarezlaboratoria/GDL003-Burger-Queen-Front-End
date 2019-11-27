@@ -3,3 +3,29 @@ body {
     color: #31433f;
     text-align:center;
 }
+@media (max-width: 767px) {
+    .logoKitchen{
+        float: right;
+    }
+    .title > h1{
+        font-size: 1.5em;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .logoKitchen{
+        float: right;
+    }
+    .title > h1{
+        font-size: 2.5em;
+    }
+}
+@media (min-width: 1025px) {
+    .logoKitchen{
+        float: left;
+        width: 10% !important;
+    }
+    .title > h1{
+        font-size: 4em;
+        width: 100%;
+    }
+}
