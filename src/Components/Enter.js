@@ -10,7 +10,8 @@ class Enter extends Component {
     this.getToken = this.getToken.bind(this);
     this.state = {
       token: '',
-      access: false
+      access: false,
+      defaultToken: 'neko'
     }
   }
 
@@ -77,7 +78,7 @@ class Enter extends Component {
               <form className='loginForm' method='post'>
                 <h1 className='titleUser'>Password</h1>
                 <p className={'messagePasswordIncorrect' + (this.state.errorPassword ? "" : " invisible")}>The password is incorrect</p> 
-                <input className='Password' type='password' ref={input => { this.password = input; }} />
+                <input className='Password' type='password' value={this.state.defaultToken} ref={input => { this.password = input; }} />
                 <button type='button' onClick={this.getToken}>
                   GET TOKEN
                 </button>

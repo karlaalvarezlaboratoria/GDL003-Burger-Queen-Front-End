@@ -34,3 +34,15 @@
     padding-left: 10px;
     text-align: center;
 }
+@media (max-width: 767px) {
+    .renderCommand {
+       width: 99%;
+       margin: 0;
+    }
+   
+}
+@media (min-width: 1025px) {
+    .renderCommand{
+       width: 45%;
+    }
+}

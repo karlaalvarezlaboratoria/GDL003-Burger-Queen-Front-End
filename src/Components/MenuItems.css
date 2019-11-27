@@ -39,3 +39,33 @@
     text-align: center;
     width: 8rem;
 }
+@media (max-width: 767px) {
+    .menuItems{
+        margin: 1em 0em;
+        width: 99%;
+    }
+    .title{
+        width: 97%;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .menuItems{
+        margin: 1em 0em;
+        width: 45%;
+    }
+    .title{
+        width: 97%;
+    }
+    .buttonMenu{
+        font-size: 18px;
+    }
+}
+@media (min-width: 1025px) {
+    .menuItems{
+        margin: 1em 0em;
+        width: 45%;
+    }
+    .title{
+        width: 97%;
+    }
+}
