@@ -7,6 +7,8 @@ import Kitchen from './Components/KitchenInterfaz';
 import Select from './Components/SelectInterfaz';
 import Orders from './Components/SeeCommands';
 import User from './Components/ChooseUser';
+import Management from './Components/Management';
+//import AddProduct from './Components/AddProducts';
 
 const Router = () => (
   <BrowserRouter>
@@ -15,7 +17,9 @@ const Router = () => (
       <ProtectedRoute path= "/create" component = {Create}/>
       <ProtectedRoute path= "/select" component = {Select}/>
       <ProtectedRoute path= "/orders" component = {Orders}/>
-      <ProtectedRoute path= "/kitchen" component = {Kitchen}/> 
+      <ProtectedRoute path= "/kitchen" component = {Kitchen}/>
+      <ProtectedRoute path= "/management" component = {Management}/> 
+      {/* <ProtectedRoute path= "/addProduct" component = {AddProduct}/> */}
       <Route exact path = "/" component ={Enter}/>
       <Route path = '*' component = {() => '404 NOT FOUND'}/> 
     </Switch>
