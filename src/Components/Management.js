@@ -48,12 +48,14 @@ class Manager extends Component {
   
   addProduct=()=>{
     this.addNewProduct();
+    let ip= "192.168.100.11"
+    let deploy2= 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/products'
     let deploy = 'https://app-nekoffee.herokuapp.com/api/products'
     let tokenLocal = localStorage.getItem('Token');
     let tokenHeader = 'Bearer ' + tokenLocal
     let databody = this.state.menu;
     console.log(JSON.stringify({ products: databody }))
-    fetch(deploy, {
+    fetch(deploy2, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
