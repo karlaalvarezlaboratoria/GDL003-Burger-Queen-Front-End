@@ -30,9 +30,25 @@ class Manager extends Component {
       );
   }
 
+  componentWillUpdate() {
+    let deploy = 'https://app-nekoffee.herokuapp.com/api/products',
+      tokenLocal = localStorage.getItem('Token'),
+      tokenHeader = 'Bearer ' + tokenLocal;
+    fetch(deploy, {
+      headers: {
+        authorization: tokenHeader,
+      },
+    })
+      .then(data => data.json())
+      .then(data =>
+        this.setState({
+          menu: data.products,
+        }),
+      );
+  }
+
   addProduct = () => {
-    let ip = 'http://localhost:3000/api/products',
-      deploy = 'https://app-nekoffee.herokuapp.com/api/products',
+    let deploy = 'https://app-nekoffee.herokuapp.com/api/products',
       tokenLocal = localStorage.getItem('Token'),
       tokenHeader = 'Bearer ' + tokenLocal,
       databody = {
@@ -49,8 +65,7 @@ class Manager extends Component {
       body: JSON.stringify(databody),
     })
       .then(res => res.json())
-      .then(
-        data => console.log(data),
+      .then(data =>
         this.setState({
           isOpen: false,
         }),
@@ -83,6 +98,7 @@ class Manager extends Component {
         this.setState({
           isOpenDelete: false,
         }),
+        this.componentDidMount(),
       )
       .catch(err => console.log(err.message));
   };
@@ -142,11 +158,7 @@ class Manager extends Component {
                     <button id={element._id} onClick={() => this.cancel(element._id)}>
                       Edit
                     </button>
-                    <button
-                      id={element._id}
-                      onClick={() =>
-                        this.setState({ isOpenDelete: true })
-                      }>
+                    <button id={element._id} onClick={() => this.setState({ isOpenDelete: true })}>
                       Delete
                     </button>
                     <Dialog
