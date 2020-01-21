@@ -145,28 +145,19 @@ class Manager extends Component {
                     <button
                       id={element._id}
                       onClick={() =>
-                        this.deleteProduct(element._id)
-                      } /* {() =>
                         this.setState({ isOpenDelete: true })
-              }*/
-                    >
+                      }>
                       Delete
                     </button>
-                    {/* <Dialog
-                    //deleteProduct={this.deleteProduct}
-                      id={element._id}
+                    <Dialog
                       isOpen={this.state.isOpenDelete}
                       onClose={() => this.setState({ isOpenDelete: false })}>
                       <div>Are you sure you want to delete this product?</div>
                       <button id={element._id} onClick={() => this.deleteProduct(element._id)}>
                         Delete
                       </button>
-                      <button
-                        id={element._id}
-                        onClick={() => this.setState({ isOpenDelete: false })}>
-                        Cancel
-                      </button>
-                    </Dialog> */}
+                      <button onClick={() => this.setState({ isOpenDelete: false })}>Cancel</button>
+                    </Dialog>
                   </td>
                 </tr>
               ))}
