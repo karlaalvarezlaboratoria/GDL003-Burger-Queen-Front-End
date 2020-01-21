@@ -15,7 +15,6 @@ class Dialog extends Component {
     if(!this.props.isOpen){
       dialog=null;
     }
-
     return (
       <div>{dialog}</div> 
     );

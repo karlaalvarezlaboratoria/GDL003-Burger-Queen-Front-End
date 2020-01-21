@@ -9,15 +9,14 @@ class Manager extends Component {
     this.state = {
       menu: [],
       isOpen: false,
-      newProduct: {name:"", price:""},
-      // newMenu: {}
+      isOpenDelete: false,
     };
   }
 
   componentDidMount() {
-    let deploy = 'https://app-nekoffee.herokuapp.com/api/products';
-    let tokenLocal = localStorage.getItem('Token');
-    let tokenHeader = 'Bearer ' + tokenLocal;
+    let deploy = 'https://app-nekoffee.herokuapp.com/api/products',
+      tokenLocal = localStorage.getItem('Token'),
+      tokenHeader = 'Bearer ' + tokenLocal;
     fetch(deploy, {
       headers: {
         authorization: tokenHeader,
@@ -31,80 +30,65 @@ class Manager extends Component {
       );
   }
 
-
-//   saveNewProduct=()=>{
-//     this.setState({
-//       newProduct:{name: this.newName.value, price: this.newPrice.value}
-//   })
-// }
-
-  addNewProduct = (price, value) => {
-      /*let newElementToAdd = {
-        name: value,
-        price: price,
-        id: _id
-      }*/
-    price= this.newPrice.value;
-    value = this.newName.value;
-    this.setState({
-      menu: [...this.state.menu, {price: price, name: value}]
-    })
-  }
-
-  addProduct=()=>{
-    this.addNewProduct();
-    let ip= "192.168.100.11"
-    let deploy2= 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/products'
-    let deploy = 'https://app-nekoffee.herokuapp.com/api/products'
-    let tokenLocal = localStorage.getItem('Token');
-    let tokenHeader = 'Bearer ' + tokenLocal
-    let databody = this.state.menu;
-    console.log(JSON.stringify({ products: databody }))
+  addProduct = () => {
+    let ip = 'http://localhost:3000/api/products',
+      deploy = 'https://app-nekoffee.herokuapp.com/api/products',
+      tokenLocal = localStorage.getItem('Token'),
+      tokenHeader = 'Bearer ' + tokenLocal,
+      databody = {
+        price: this.newPrice.value,
+        name: this.newName.value,
+      };
     fetch(deploy, {
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
-        'authorization': tokenHeader
+        authorization: tokenHeader,
       },
       method: 'POST',
-      body: JSON.stringify({ products: databody })
-    }).then(res => res.json())
-      .then(data => console.log(data), this.setState({
-        isOpen: false,
-      }),)
+      body: JSON.stringify(databody),
+    })
+      .then(res => res.json())
+      .then(
+        data => console.log(data),
+        this.setState({
+          isOpen: false,
+        }),
+      )
       .catch(err => console.log(err.message));
-  }
+  };
 
-  deleteProduct=(_id)=>{
+  deleteProduct = _id => {
     let elementToDelete = {
-      id: _id
-    }
+      id: _id,
+    };
     let deploy = 'https://app-nekoffee.herokuapp.com/api/products/' + _id;
     console.log(deploy);
     let tokenLocal = localStorage.getItem('Token');
-    let tokenHeader = 'Bearer ' + tokenLocal
+    let tokenHeader = 'Bearer ' + tokenLocal;
     let databody = this.state.menu;
-    console.log(JSON.stringify({ products: databody }))
+    console.log(JSON.stringify({ products: databody }));
     fetch(deploy, {
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
-        'authorization': tokenHeader
+        authorization: tokenHeader,
       },
       method: 'DELETE',
-      body: JSON.stringify({ products: databody })
-    }).then(res => res.json())
-      .then(data => console.log(data), this.setState({
-        isOpen: false,
-      }),)
+      body: JSON.stringify({ products: databody }),
+    })
+      .then(res => res.json())
+      .then(
+        data => console.log(data),
+        this.setState({
+          isOpenDelete: false,
+        }),
+      )
       .catch(err => console.log(err.message));
-  }
+  };
 
   render() {
-    // console.log(this.state.newProduct);
-    // console.log(name);
     let menu = this.state.menu;
-    console.log(...menu);
     return (
       <div>
         <header>
@@ -122,13 +106,25 @@ class Manager extends Component {
         <Dialog isOpen={this.state.isOpen} onClose={() => this.setState({ isOpen: false })}>
           <form>
             <label>
-              <input ref={input => { this.newName = input; }} className="dialog-input" type="text" placeholder="New product" ></input>
+              <input
+                ref={input => {
+                  this.newName = input;
+                }}
+                className="dialog-input"
+                type="text"
+                placeholder="New product"></input>
             </label>
             <label>
-              <input ref={input => { this.newPrice = input; }} className="dialog-input" type="text" placeholder= "Price" ></input>
+              <input
+                ref={input => {
+                  this.newPrice = input;
+                }}
+                className="dialog-input"
+                type="text"
+                placeholder="Price"></input>
             </label>
           </form>
-          <button onClick={()=> this.addProduct()}>Add</button>
+          <button onClick={this.addProduct}>Add</button>
           <button onClick={() => this.setState({ isOpen: false })}>Cancel</button>
         </Dialog>
 
@@ -146,9 +142,31 @@ class Manager extends Component {
                     <button id={element._id} onClick={() => this.cancel(element._id)}>
                       Edit
                     </button>
-                    <button id={element._id} onClick={() => this.deleteProduct(element._id)}>
+                    <button
+                      id={element._id}
+                      onClick={() =>
+                        this.deleteProduct(element._id)
+                      } /* {() =>
+                        this.setState({ isOpenDelete: true })
+              }*/
+                    >
                       Delete
                     </button>
+                    {/* <Dialog
+                    //deleteProduct={this.deleteProduct}
+                      id={element._id}
+                      isOpen={this.state.isOpenDelete}
+                      onClose={() => this.setState({ isOpenDelete: false })}>
+                      <div>Are you sure you want to delete this product?</div>
+                      <button id={element._id} onClick={() => this.deleteProduct(element._id)}>
+                        Delete
+                      </button>
+                      <button
+                        id={element._id}
+                        onClick={() => this.setState({ isOpenDelete: false })}>
+                        Cancel
+                      </button>
+                    </Dialog> */}
                   </td>
                 </tr>
               ))}
