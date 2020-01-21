@@ -9,7 +9,7 @@ class Manager extends Component {
     this.state = {
       menu: [],
       isOpen: false,
-      newElement: {name:"", price:""},
+      newProduct: {name:"", price:""},
       // newMenu: {}
     };
   }
@@ -32,26 +32,34 @@ class Manager extends Component {
   }
 
 
-  addNewProduct = () => {
-    let newPrice= parseInt(this.newPrice.value);
-    let newName= this.newName.value;
-    // let newElement= {
-    //   price: newPrice,
-    //   name:newName,
-    // }
+//   saveNewProduct=()=>{
+//     this.setState({
+//       newProduct:{name: this.newName.value, price: this.newPrice.value}
+//   })
+// }
+
+  addNewProduct = (price, value) => {
+      /*let newElementToAdd = {
+        name: value,
+        price: price,
+        id: _id
+      }*/
+    price= this.newPrice.value;
+    value = this.newName.value;
     this.setState({
-    //   menu:[...this.state.menu, {price: newPrice, name:newName}]
-    newElement:{price:newPrice, name:newName}
-     })
+      menu: [...this.state.menu, {price: price, name: value}]
+    })
   }
-  
+
   addProduct=()=>{
     this.addNewProduct();
+    let ip= "192.168.100.11"
+    let deploy2= 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/products'
     let deploy = 'https://app-nekoffee.herokuapp.com/api/products'
     let tokenLocal = localStorage.getItem('Token');
     let tokenHeader = 'Bearer ' + tokenLocal
-    let databody = [{"price":999, "name":"PORFAVOOOOR"}]
-    console.log(JSON.stringify({ products:databody }))
+    let databody = this.state.menu;
+    console.log(JSON.stringify({ products: databody }))
     fetch(deploy, {
       headers: {
         'Accept': 'application/json',
@@ -59,7 +67,32 @@ class Manager extends Component {
         'authorization': tokenHeader
       },
       method: 'POST',
-      body: JSON.stringify({ products:databody })
+      body: JSON.stringify({ products: databody })
+    }).then(res => res.json())
+      .then(data => console.log(data), this.setState({
+        isOpen: false,
+      }),)
+      .catch(err => console.log(err.message));
+  }
+
+  deleteProduct=(_id)=>{
+    let elementToDelete = {
+      id: _id
+    }
+    let deploy = 'https://app-nekoffee.herokuapp.com/api/products/' + _id;
+    console.log(deploy);
+    let tokenLocal = localStorage.getItem('Token');
+    let tokenHeader = 'Bearer ' + tokenLocal
+    let databody = this.state.menu;
+    console.log(JSON.stringify({ products: databody }))
+    fetch(deploy, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'authorization': tokenHeader
+      },
+      method: 'DELETE',
+      body: JSON.stringify({ products: databody })
     }).then(res => res.json())
       .then(data => console.log(data), this.setState({
         isOpen: false,
@@ -92,7 +125,7 @@ class Manager extends Component {
               <input ref={input => { this.newName = input; }} className="dialog-input" type="text" placeholder="New product" ></input>
             </label>
             <label>
-              <input ref={input => { this.newPrice = input; }} className="dialog-input" type="number" placeholder= "Price" ></input>
+              <input ref={input => { this.newPrice = input; }} className="dialog-input" type="text" placeholder= "Price" ></input>
             </label>
           </form>
           <button onClick={()=> this.addProduct()}>Add</button>
@@ -113,7 +146,7 @@ class Manager extends Component {
                     <button id={element._id} onClick={() => this.cancel(element._id)}>
                       Edit
                     </button>
-                    <button id={element._id} onClick={() => this.print(element._id)}>
+                    <button id={element._id} onClick={() => this.deleteProduct(element._id)}>
                       Delete
                     </button>
                   </td>
