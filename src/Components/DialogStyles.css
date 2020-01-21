@@ -36,3 +36,48 @@
     font-size: 1.5rem;
     color:grey;
 }
+
+.dialog-select{
+    width: 20rem;
+    height: 5rem;
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    padding: 5px;
+     
+}
+
+select:focus{ outline: none;}
+
+.select-box{
+    
+        margin:20px auto;        
+        border:.2rem solid #1fab88;
+        border-radius: .5rem;
+        height:30px;
+        width: 230px;
+        overflow: hidden;
+        position:relative;
+
+}
+
+.select-box::after{
+    content:"\025be";
+    display:table-cell;
+    text-align:center;
+    padding-top:7px;
+    width:30px;
+    height:30px;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c6f1d6), color-stop(1, #1fab88));
+	background:-moz-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
+	background:-webkit-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
+	background:-o-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
+	background:-ms-linear-gradient(top, #c6f1d6 5%, #1fab88 100%);
+	background:linear-gradient(to bottom, #c6f1d6 5%, #1fab88 100%);
+    position:absolute;
+    top:0;
+    right:0px;
+    pointer-events: none;
+    color: white;
+
+ }

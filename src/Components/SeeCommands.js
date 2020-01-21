@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import './SeeCommand.css';
 import logo from './Ne-koffee Aqua oscuro.png';
+import Dialog from './Dialog';
 
 class Orders extends Component {
   constructor(props) {
     super(props);
     this.state = {
       orders: [],
+      isOpen: false,
     };
   }
 
   componentDidMount() {
     let tokenLocal = localStorage.getItem('Token');
-    let tokenHeader = 'Bearer ' + tokenLocal
-    console.log(tokenHeader)
+    let tokenHeader = 'Bearer ' + tokenLocal;
+    console.log(tokenHeader);
     let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
     fetch(deploy, {
       headers: {
-        'authorization': tokenHeader
-      }
+        authorization: tokenHeader,
+      },
     })
       .then(data => data.json())
       .then(data =>
@@ -32,14 +34,14 @@ class Orders extends Component {
     let deployId = 'https://app-nekoffee.herokuapp.com/api/orders/' + id;
     let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
     let tokenLocal = localStorage.getItem('Token');
-    let tokenHeader = 'Bearer ' + tokenLocal
-    console.log(tokenHeader)
+    let tokenHeader = 'Bearer ' + tokenLocal;
+    console.log(tokenHeader);
     console.log(JSON.stringify({ status: 'Print' }));
     fetch(deployId, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'authorization': tokenHeader
+        authorization: tokenHeader,
       },
       method: 'PUT',
       body: JSON.stringify({
@@ -50,8 +52,8 @@ class Orders extends Component {
       .then(() =>
         fetch(deploy, {
           headers: {
-            'authorization': tokenHeader
-          }
+            authorization: tokenHeader,
+          },
         })
           .then(data => data.json())
           .then(data =>
@@ -68,26 +70,27 @@ class Orders extends Component {
     let deployId = 'https://app-nekoffee.herokuapp.com/api/orders/' + id;
     let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
     let tokenLocal = localStorage.getItem('Token');
-    let tokenHeader = 'Bearer ' + tokenLocal
-    console.log(tokenHeader)
+    let tokenHeader = 'Bearer ' + tokenLocal;
+    console.log(tokenHeader);
     console.log(JSON.stringify({ status: 'Cancel' }));
     fetch(deployId, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'authorization': tokenHeader
+        authorization: tokenHeader,
       },
       method: 'PUT',
       body: JSON.stringify({
         status: 'Cancel',
+        comments: this.select.value,
         ...this.state.order,
       }),
     })
       .then(() =>
         fetch(deploy, {
           headers: {
-            'authorization': tokenHeader
-          }
+            authorization: tokenHeader,
+          },
         })
           .then(data => data.json())
           .then(data =>
@@ -96,7 +99,9 @@ class Orders extends Component {
             }),
           ),
       )
-      .then(data => console.log(data))
+      .then(data => this.setState({
+              isOpen: false,
+            }))
       .catch(err => console.log(err.message));
   };
 
@@ -105,16 +110,17 @@ class Orders extends Component {
     return (
       <div>
         <header>
-          <img src={logo} className='logoSeeCommand' alt='logo' />
-          <div className='title'>
+          <img src={logo} className="logoSeeCommand" alt="logo" />
+          <button className="buttonClose" onClick={() => this.props.history.push('/select')}>
+            Exit
+          </button>
+          <div className="title">
             <h1>Orders</h1>
           </div>
-          <button className='buttonClose' onClick={() => this.props.history.push('/select')}>
-            Exit
-        </button>
+         
         </header>
-        <div className='seeCommand'>
-          <table id='menuList'>
+        <div className="seeCommand">
+          <table id="menuList">
             <tbody>
               <th>Product</th>
               <th>Status</th>
@@ -128,9 +134,27 @@ class Orders extends Component {
                       ))}
                       <td>{element.status}</td>
                       <td>
-                        <button id={element._id} onClick={() => this.cancel(element._id)}>
+                        <button id={element._id} onClick={() => this.setState({ isOpen: true })}>
                           Cancel
                         </button>
+                        <Dialog
+                          isOpen={this.state.isOpen}
+                          onClose={() => this.setState({ isOpen: false })}>
+                          <form>
+                            <div className="select-box">
+                              <select
+                                ref={select => {
+                                  this.select = select;
+                                }}
+                                className="dialog-select">
+                                <option>Se canceló por x</option>
+                                <option>Se canceló por y</option>
+                                <option>Se canceló por z</option>
+                              </select>
+                            </div>
+                          </form>
+                          <button onClick={() => this.cancel(element._id)}>Next</button>
+                        </Dialog>
                         <button id={element._id} onClick={() => this.print(element._id)}>
                           Print
                         </button>
@@ -138,8 +162,7 @@ class Orders extends Component {
                     </tr>
                   );
                 }
-              }
-              )}
+              })}
             </tbody>
           </table>
         </div>
