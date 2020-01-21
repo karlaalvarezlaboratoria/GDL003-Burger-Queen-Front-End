@@ -9,7 +9,7 @@ class Manager extends Component {
     this.state = {
       menu: [],
       isOpen: false,
-      newProduct: {name:"", price:""},
+      newElement: {name:"", price:""},
       // newMenu: {}
     };
   }
@@ -32,37 +32,34 @@ class Manager extends Component {
   }
 
 
-//   saveNewProduct=()=>{
-//     this.setState({
-//       newProduct:{name: this.newName.value, price: this.newPrice.value}
-//   })
-// }
-
-  addNewProduct = (price, name, _id) => {
-    let newPrice= this.newPrice.value;
-    let newName = this.newName.value;
+  addNewProduct = () => {
+    let newPrice= parseInt(this.newPrice.value);
+    let newName= this.newName.value;
+    // let newElement= {
+    //   price: newPrice,
+    //   name:newName,
+    // }
     this.setState({
-      menu: [...this.state.menu, {price: newPrice, name:newName}]
-    })
+    //   menu:[...this.state.menu, {price: newPrice, name:newName}]
+    newElement:{price:newPrice, name:newName}
+     })
   }
   
   addProduct=()=>{
     this.addNewProduct();
-    let ip= "192.168.100.11"
-    let deploy2= 'https://gdl003-burger-queen-back-end.brendavielmas.now.sh/api/products'
     let deploy = 'https://app-nekoffee.herokuapp.com/api/products'
     let tokenLocal = localStorage.getItem('Token');
     let tokenHeader = 'Bearer ' + tokenLocal
-    let databody = this.state.menu;
-    console.log(JSON.stringify({ products: databody }))
-    fetch(deploy2, {
+    let databody = [{"price":999, "name":"PORFAVOOOOR"}]
+    console.log(JSON.stringify({ products:databody }))
+    fetch(deploy, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'authorization': tokenHeader
       },
-      method: 'PUSH',
-      body: JSON.stringify({ products: databody })
+      method: 'POST',
+      body: JSON.stringify({ products:databody })
     }).then(res => res.json())
       .then(data => console.log(data), this.setState({
         isOpen: false,
@@ -95,7 +92,7 @@ class Manager extends Component {
               <input ref={input => { this.newName = input; }} className="dialog-input" type="text" placeholder="New product" ></input>
             </label>
             <label>
-              <input ref={input => { this.newPrice = input; }} className="dialog-input" type="text" placeholder= "Price" ></input>
+              <input ref={input => { this.newPrice = input; }} className="dialog-input" type="number" placeholder= "Price" ></input>
             </label>
           </form>
           <button onClick={()=> this.addProduct()}>Add</button>
