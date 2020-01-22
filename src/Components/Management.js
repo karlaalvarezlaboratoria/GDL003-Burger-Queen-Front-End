@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SeeCommand.css';
-import logo from './Ne-koffee Aqua oscuro.png';
 import Dialog from './Dialog';
+import Header from './Header';
 
 class Manager extends Component {
   constructor(props) {
@@ -107,15 +107,7 @@ class Manager extends Component {
     let menu = this.state.menu;
     return (
       <div>
-        <header>
-          <img src={logo} className="logoSeeCommand" alt="logo" />
-          <button className="buttonClose" onClick={() => this.props.history.push('/')}>
-            Exit
-          </button>
-          <div className="title">
-            <h1>Management</h1>
-          </div>
-        </header>
+        <Header route="/user" title="Menu"></Header>
         <button className="buttonClose" onClick={() => this.setState({ isOpen: true })}>
           + Add product
         </button>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './KitchenInterfaz.css';
-import logo from './Ne-koffee Aqua oscuro.png';
+import Header from './Header';
 
 class Kitchen extends Component {
   constructor(props) {
@@ -68,13 +68,7 @@ class Kitchen extends Component {
     let orders = this.state.orders;
     return (
       <React.Fragment>
-        <header>
-          <img src={logo} className='logoKitchen' alt='logo' />
-          <div className='title'>
-            <h1>Coffee Bar</h1>
-          </div>
-          <button className='buttonCloseKitchen' onClick={() => this.props.history.push('/')}>Exit</button>
-        </header>
+        <Header route= "/" title= "Kitchen"></Header>
         <div className='kitchen'>
           <table id='kitchenList'>
             <tbody>

@@ -5,7 +5,7 @@ import MenuItems from './MenuItems';
 import Cancel from './CancelCommand';
 import Send from './SendCommand';
 import uuidv4 from 'uuid/v4';
-import logo from './Ne-koffee Aqua oscuro.png';
+import Header from './Header';
 
 class Create extends Component {
   constructor() {
@@ -84,13 +84,8 @@ class Create extends Component {
     console.log(command);
     return (
       <React.Fragment>
-        <header>
-          <img src={logo} className='logoKitchen' alt='logo' />
-          <div className='title'>
-            <h1>New Order</h1>
-          </div>
-          <Send sendCommand={this.sendCommand} /> <Cancel />
-        </header>
+        <Header route= "/select" title= "New Order"></Header>
+        <Send sendCommand={this.sendCommand} /><Cancel />
         <RenderCommand
           delete={this.delete}
           order={this.state.order} />

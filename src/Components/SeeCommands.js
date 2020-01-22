@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SeeCommand.css';
-import logo from './Ne-koffee Aqua oscuro.png';
 import Dialog from './Dialog';
+import Header from './Header';
 
 class Orders extends Component {
   constructor(props) {
@@ -99,9 +99,11 @@ class Orders extends Component {
             }),
           ),
       )
-      .then(data => this.setState({
-              isOpen: false,
-            }))
+      .then(data =>
+        this.setState({
+          isOpen: false,
+        }),
+      )
       .catch(err => console.log(err.message));
   };
 
@@ -109,16 +111,7 @@ class Orders extends Component {
     let orders = this.state.orders;
     return (
       <div>
-        <header>
-          <img src={logo} className="logoSeeCommand" alt="logo" />
-          <button className="buttonClose" onClick={() => this.props.history.push('/select')}>
-            Exit
-          </button>
-          <div className="title">
-            <h1>Orders</h1>
-          </div>
-         
-        </header>
+        <Header route="/select" title="Orders"></Header>
         <div className="seeCommand">
           <table id="menuList">
             <tbody>
