@@ -6,6 +6,8 @@ import Cancel from './CancelCommand';
 import Send from './SendCommand';
 import uuidv4 from 'uuid/v4';
 import Header from './Header';
+import ordersLink from './links';
+import httpCall from './httpRequest';
 
 class Create extends Component {
   constructor() {
@@ -17,7 +19,7 @@ class Create extends Component {
   }
 
   componentDidMount() {
-    let deploy = 'https://app-nekoffee.herokuapp.com/api/products'
+    let deploy = ordersLink
     let tokenLocal = localStorage.getItem('Token');
     let tokenHeader = 'Bearer ' + tokenLocal
     fetch(deploy, {
@@ -45,24 +47,12 @@ class Create extends Component {
     })
   }
 
-
   sendCommand = () => {
-    let deploy = 'https://app-nekoffee.herokuapp.com/api/orders'
-    let tokenLocal = localStorage.getItem('Token');
-    let tokenHeader = 'Bearer ' + tokenLocal
-    let databody = this.state.order
-    console.log(JSON.stringify({ order: databody }))
-    fetch(deploy, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'authorization': tokenHeader
-      },
-      method: 'POST',
-      body: JSON.stringify({ order: databody })
-    }).then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.log(err.message));
+    let link = "http://localhost:3000/api/orders",
+    newOrder= this.state.order,
+      verb = 'POST',
+      body =  {order:newOrder};
+    httpCall(link, verb, body);
   }
 
   delete = (uuid) => {
