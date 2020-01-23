@@ -7,7 +7,7 @@ class User extends Component {
   render() {
     return (
       <div>
-        <Header route="/" /*title= "Select your user"*/></Header>
+        <Header route="/"></Header>
         <h1 className="titleUser">Select your user</h1>
         <button className="buttonUser" onClick={() => this.props.history.push('/management')}>
           Manager

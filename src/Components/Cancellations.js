@@ -1,43 +1,61 @@
 import React, { Component } from 'react';
 import './SeeCommand.css';
 import Header from './Header';
+import { ordersLink } from './links';
 
 class Cancellations extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cancellations: [],
+      orders: [],
       isOpen: false,
-      isOpenDelete: false,
     };
   }
 
+  componentDidMount() {
+    let deploy = ordersLink;
+    let tokenLocal = localStorage.getItem('Token');
+    let tokenHeader = 'Bearer ' + tokenLocal;
+    console.log(tokenHeader);
+    fetch(deploy, {
+      headers: {
+        authorization: tokenHeader,
+      },
+    })
+      .then(data => data.json())
+      .then(data =>
+        this.setState({
+          orders: data.orders,
+        }),
+      );
+  }
+
   render() {
+    let orders = this.state.orders;
     return (
       <div>
         <Header route="/user" title="Cacellations"></Header>
-        <div className="seeCommand">
-          {/* <table id="menuList">
+        <div className="kitchen">
+          <table id="kitchenList">
             <tbody>
               <th>Product</th>
-              <th>Price</th>
-              <th></th>
-              {menu.map(element => (
-                <tr key={element._id}>
-                  <td>{element.name}</td>
-                  <td>{element.price}</td>
-                  <td>
-                    <button id={element._id} onClick={() => this.cancel(element._id)}>
-                      Edit
-                    </button>
-                    <button id={element._id} onClick={() => this.setState({ isOpenDelete: true })}>
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              <th>Status</th>
+              <th>Comments</th>
+              {orders.map(element => {
+                if (element.status === 'Cancel') {
+                  return (
+                    <tr key={element._id}>
+                      {element.order.map((el, id) => (
+                        <li className="Product">{el.name}</li>
+                      ))}
+                      <td>{element.status}</td>
+                      <td>{element.comments}</td>
+                    </tr>
+                  );
+                }
+              })}
             </tbody>
-          </table> */}
+          </table>
         </div>
       </div>
     );

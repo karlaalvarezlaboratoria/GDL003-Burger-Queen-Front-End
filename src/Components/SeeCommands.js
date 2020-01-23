@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SeeCommand.css';
-import Dialog from './Dialog';
 import Header from './Header';
+import { ordersLink } from './links';
 
 class Orders extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Orders extends Component {
     let tokenLocal = localStorage.getItem('Token');
     let tokenHeader = 'Bearer ' + tokenLocal;
     console.log(tokenHeader);
-    let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
+    let deploy = ordersLink;
     fetch(deploy, {
       headers: {
         authorization: tokenHeader,
@@ -31,8 +31,8 @@ class Orders extends Component {
   }
 
   print = id => {
-    let deployId = 'https://app-nekoffee.herokuapp.com/api/orders/' + id;
-    let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
+    let deployId = ordersLink + '/' + id;
+    let deploy = ordersLink;
     let tokenLocal = localStorage.getItem('Token');
     let tokenHeader = 'Bearer ' + tokenLocal;
     console.log(tokenHeader);
@@ -67,8 +67,8 @@ class Orders extends Component {
   };
 
   cancel = id => {
-    let deployId = 'https://app-nekoffee.herokuapp.com/api/orders/' + id;
-    let deploy = 'https://app-nekoffee.herokuapp.com/api/orders';
+    let deployId = ordersLink + '/' + id;
+    let deploy = ordersLink;
     let tokenLocal = localStorage.getItem('Token');
     let tokenHeader = 'Bearer ' + tokenLocal;
     console.log(tokenHeader);
@@ -82,7 +82,6 @@ class Orders extends Component {
       method: 'PUT',
       body: JSON.stringify({
         status: 'Cancel',
-        comments: this.select.value,
         ...this.state.order,
       }),
     })
@@ -98,11 +97,6 @@ class Orders extends Component {
               orders: data.orders,
             }),
           ),
-      )
-      .then(data =>
-        this.setState({
-          isOpen: false,
-        }),
       )
       .catch(err => console.log(err.message));
   };
@@ -127,27 +121,14 @@ class Orders extends Component {
                       ))}
                       <td>{element.status}</td>
                       <td>
-                        <button id={element._id} onClick={() => this.setState({ isOpen: true })}>
+                        <button
+                          id={element._id}
+                          onClick={() =>
+                            this.cancel(element._id)
+                          } /*{() => this.setState({ isOpen: true })}*/
+                        >
                           Cancel
                         </button>
-                        <Dialog
-                          isOpen={this.state.isOpen}
-                          onClose={() => this.setState({ isOpen: false })}>
-                          <form>
-                            <div className="select-box">
-                              <select
-                                ref={select => {
-                                  this.select = select;
-                                }}
-                                className="dialog-select">
-                                <option>Se canceló por x</option>
-                                <option>Se canceló por y</option>
-                                <option>Se canceló por z</option>
-                              </select>
-                            </div>
-                          </form>
-                          <button onClick={() => this.cancel(element._id)}>Next</button>
-                        </Dialog>
                         <button id={element._id} onClick={() => this.print(element._id)}>
                           Print
                         </button>

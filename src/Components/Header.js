@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import logo from './Ne-koffee Aqua oscuro.png';
 
 class Header extends Component {

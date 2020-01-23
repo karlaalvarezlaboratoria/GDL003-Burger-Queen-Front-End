@@ -5,24 +5,24 @@ import './SelectInterfaz.css';
 class Select extends Component {
   constructor() {
     super();
-    this.state = {}
+    this.state = {};
   }
 
   render() {
     return (
-      <div className='waiter'>
-        <h1 className='titleUser'>Select your action</h1>
-        <button className='buttonsWaiter' onClick={() => this.props.history.push('/create')}>
+      <div className="waiter">
+        <h1 className="titleUser">Select your action</h1>
+        <button className="buttonsWaiter" onClick={() => this.props.history.push('/create')}>
           New Command
         </button>
-        <button className='buttonsWaiter' onClick={() => this.props.history.push('/orders')}>
+        <button className="buttonsWaiter" onClick={() => this.props.history.push('/orders')}>
           Edit Command
         </button>
-        <button className='buttonsWaiter' onClick={() => this.props.history.push('/')}>
+        <button className="buttonsWaiter" onClick={() => this.props.history.push('/')}>
           Exit
         </button>
       </div>
-    )
+    );
   }
 }
 
