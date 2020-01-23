@@ -3,9 +3,9 @@ let products = 'https://app-nekoffee.herokuapp.com/api/products',
 orders ='https://app-nekoffee.herokuapp.com/api/orders' ,
 //ordersId= 'https://app-nekoffee.herokuapp.com/api/orders/' + _id ,
 
-localProducts = "http://localhost:3000//api/products",
+localProducts = "http://localhost:3000/api/products",
 //localProductsId= "localhost:3000//api/products/" + _id ,
-localOrders= "http://localhost:3000//api/orders" ,
+localOrders= "http://localhost:3000/api/orders" ,
 //locaOrdersId= "localhost:3000//api/orders/" + _id ,
 
 password = 'https://app-nekoffee.herokuapp.com/api/authenticate',
