@@ -1,6 +1,6 @@
 //ESTA ES LA COPIA DEL POST
 
-const httpCall = (link, verb, body, other) => {
+const httpCall = (link, verb, body) => {
     let deploy = link,
       tokenLocal = localStorage.getItem("Token"),
       tokenHeader = "Bearer " + tokenLocal,

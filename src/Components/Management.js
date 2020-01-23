@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './SeeCommand.css';
 import Dialog from './Dialog';
 import Header from './Header';
-import productsLink from './links'
+import productsLink from './links';
+import httpCall from './httpRequest';
 
 class Manager extends Component {
   constructor(props) {
@@ -32,59 +33,26 @@ class Manager extends Component {
   }
 
   addProduct = () => {
-    let deploy = productsLink,
-      tokenLocal = localStorage.getItem('Token'),
-      tokenHeader = 'Bearer ' + tokenLocal,
-      databody = {
-        price: this.newPrice.value,
-        name: this.newName.value,
-      };
-    fetch(deploy, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        authorization: tokenHeader,
-      },
-      method: 'POST',
-      body: JSON.stringify(databody),
-    })
-      .then(res => res.json())
-      .then(data =>
-        this.setState({
-          isOpen: false,
-        }),
-      )
-      .catch(err => console.log(err.message));
+    let link = productsLink,
+      verb = 'POST',
+      body =  {
+            price: this.newPrice.value,
+            name: this.newName.value,
+          };
+    httpCall(link, verb, body);
+    this.setState({
+      isOpen: false,
+    });
   };
 
   deleteProduct = _id => {
-    let elementToDelete = {
-      id: _id,
-    };
-    let deploy = productsLink +'/' + _id;
-    console.log(deploy);
-    let tokenLocal = localStorage.getItem('Token');
-    let tokenHeader = 'Bearer ' + tokenLocal;
-    let databody = this.state.menu;
-    console.log(JSON.stringify({ products: databody }));
-    fetch(deploy, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        authorization: tokenHeader,
-      },
-      method: 'DELETE',
-      body: JSON.stringify({ products: databody }),
-    })
-      .then(res => res.json())
-      .then(
-        data => console.log(data),
-        this.setState({
-          isOpenDelete: false,
-        }),
-        this.componentDidMount(),
-      )
-      .catch(err => console.log(err.message));
+    let link = productsLink + '/' + _id,
+      verb = 'DELETE',
+      body = this.state.menu;
+    httpCall(link, verb, body);
+    this.setState({
+      isOpenDelete: false,
+    });
   };
 
   render() {
@@ -134,7 +102,12 @@ class Manager extends Component {
                     <button id={element._id} onClick={() => this.cancel(element._id)}>
                       Edit
                     </button>
-                    <button id={element._id} onClick={() => this.deleteProduct(element._id)}/*{() => this.setState({ isOpenDelete: true })}*/>
+                    <button
+                      id={element._id}
+                      onClick={() =>
+                        this.deleteProduct(element._id)
+                      } /*{() => this.setState({ isOpenDelete: true })}*/
+                    >
                       Delete
                     </button>
                     {/* <Dialog
