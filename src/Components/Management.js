@@ -13,6 +13,7 @@ class Manager extends Component {
       isOpen: false,
       isOpenDelete: false,
       isOpenEdit: false,
+      id: '',
     };
   }
 
@@ -52,12 +53,12 @@ class Manager extends Component {
       verb = 'DELETE',
       body = this.state.menu;
     httpCall(link, verb, body);
-    let menu = this.state.menu;
-    let newMenu = menu.filter(el => {
+    let newMenu = body.filter(el => {
       return el._id !== _id;
     });
     this.setState({
-      menu: newMenu
+      menu: newMenu,
+      isOpenDelete: false,
     });
   };
 
@@ -105,9 +106,18 @@ class Manager extends Component {
                   <td>{element.name}</td>
                   <td>{element.price}</td>
                   <td>
-                    <button id={element._id} onClick={() => this.deleteProduct(element._id)}>
+                    <button id={element._id} onClick={(_id)=>this.setState({isOpenDelete:true, id:element._id})}>
                       Delete
                     </button>
+                    <Dialog
+                      isOpen={this.state.isOpenDelete}
+                      onClose={() => this.setState({ isOpenDelete: false })}>
+                      <div>Are you sure you want to delete this product?</div>
+                      <button onClick={() => this.deleteProduct(this.state.id)}>
+                        Delete
+                      </button>
+                      <button onClick={() => this.setState({ isOpenDelete: false })}>Cancel</button>
+                    </Dialog>
                   </td>
                 </tr>
               ))}
