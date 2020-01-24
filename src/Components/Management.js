@@ -14,6 +14,7 @@ class Manager extends Component {
       isOpenDelete: false,
       isOpenEdit: false,
       id: '',
+      editProduct:{price:'', name:''},
     };
   }
 
@@ -119,7 +120,7 @@ class Manager extends Component {
                   <td>{element.name}</td>
                   <td>{element.price}</td>
                   <td>
-                    <button onClick={()=>this.setState({isOpenEdit:true, id: element._id})}>Edit</button>
+                    <button onClick={()=>this.setState({isOpenEdit:true, id: element._id, editProduct:{ name: element.name, price: element.price}})}>Edit</button>
                     <Dialog
                       isOpen={this.state.isOpenEdit}
                       onClose={() => this.setState({ isOpenEdit: false })}>
@@ -131,7 +132,7 @@ class Manager extends Component {
                             }}
                             className="dialog-input"
                             type="text"
-                            placeholder="New product"></input>
+                            defaultValue={this.state.editProduct.name}></input>
                         </label>
                         <label>
                           <input
@@ -140,10 +141,10 @@ class Manager extends Component {
                             }}
                             className="dialog-input"
                             type="text"
-                            placeholder="Price"></input>
+                            defaultValue={this.state.editProduct.price}></input>
                         </label>
                       </form>
-                      <button onClick={()=>this.editProduct(this.state.id)}>Add</button>
+                      <button onClick={()=>this.editProduct(this.state.id)}>Edit</button>
                       <button onClick={() => this.setState({ isOpen: false })}>Cancel</button>
                     </Dialog>
                     <button onClick={() => this.setState({ isOpenDelete: true, id: element._id })}>
