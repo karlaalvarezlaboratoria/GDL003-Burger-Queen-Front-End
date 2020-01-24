@@ -62,6 +62,19 @@ class Manager extends Component {
     });
   };
 
+  editProduct= id =>{
+    let link = productsLink + '/' + id,
+      verb = 'PUT',
+      body = {
+        price: this.newPrice.value,
+        name: this.newName.value,
+      };
+    httpCall(link, verb, body);
+    this.setState({
+      isOpenEdit: false,
+    });
+  }
+
   render() {
     let menu = this.state.menu;
     return (
@@ -106,16 +119,41 @@ class Manager extends Component {
                   <td>{element.name}</td>
                   <td>{element.price}</td>
                   <td>
-                    <button id={element._id} onClick={(_id)=>this.setState({isOpenDelete:true, id:element._id})}>
+                    <button onClick={()=>this.setState({isOpenEdit:true, id: element._id})}>Edit</button>
+                    <Dialog
+                      isOpen={this.state.isOpenEdit}
+                      onClose={() => this.setState({ isOpenEdit: false })}>
+                      <form>
+                        <label>
+                          <input
+                            ref={input => {
+                              this.newName = input;
+                            }}
+                            className="dialog-input"
+                            type="text"
+                            placeholder="New product"></input>
+                        </label>
+                        <label>
+                          <input
+                            ref={input => {
+                              this.newPrice = input;
+                            }}
+                            className="dialog-input"
+                            type="text"
+                            placeholder="Price"></input>
+                        </label>
+                      </form>
+                      <button onClick={()=>this.editProduct(this.state.id)}>Add</button>
+                      <button onClick={() => this.setState({ isOpen: false })}>Cancel</button>
+                    </Dialog>
+                    <button onClick={() => this.setState({ isOpenDelete: true, id: element._id })}>
                       Delete
                     </button>
                     <Dialog
                       isOpen={this.state.isOpenDelete}
                       onClose={() => this.setState({ isOpenDelete: false })}>
                       <div>Are you sure you want to delete this product?</div>
-                      <button onClick={() => this.deleteProduct(this.state.id)}>
-                        Delete
-                      </button>
+                      <button onClick={() => this.deleteProduct(this.state.id)}>Delete</button>
                       <button onClick={() => this.setState({ isOpenDelete: false })}>Cancel</button>
                     </Dialog>
                   </td>
